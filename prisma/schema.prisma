@@ -1,0 +1,62 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Menu {
+  id   Int    @id @default(autoincrement())
+  name String
+  path String
+  icon String
+}
+
+model Gender {
+  id      Int      @id @default(autoincrement())
+  name    String
+  animals Animal[]
+}
+
+model AnimalType {
+  id         Int              @id @default(autoincrement())
+  name       String
+  icon       String
+  categories AnimalCategory[]
+}
+
+model AnimalCategory {
+  id          Int           @id @default(autoincrement())
+  name        String
+  description String
+  type        AnimalType    @relation(fields: [typeId], references: [id])
+  typeId      Int
+  AnimalBreed AnimalBreed[]
+}
+
+model AnimalBreed {
+  id          Int            @id @default(autoincrement())
+  name        String
+  description String
+  category    AnimalCategory @relation(fields: [categoryId], references: [id])
+  categoryId  Int
+  Animal      Animal[]
+}
+
+model Animal {
+  id          Int         @id @default(autoincrement())
+  tag         String
+  imageUrl    String
+  breed       AnimalBreed @relation(fields: [breedId], references: [id])
+  breedId     Int
+  Gender      Gender      @relation(fields: [genderId], references: [id])
+  genderId    Int
+  bornAt      DateTime
+  purchasedAt DateTime?
+  status      Boolean     @default(true)
+}
