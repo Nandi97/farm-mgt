@@ -28,15 +28,18 @@ model AnimalType {
   name       String
   icon       String
   categories AnimalCategory[]
+  createdAt  DateTime         @default(now())
+  updatedAt  DateTime         @default(now())
 }
 
 model AnimalCategory {
-  id          Int           @id @default(autoincrement())
-  name        String
-  description String
-  type        AnimalType    @relation(fields: [typeId], references: [id])
-  typeId      Int
-  AnimalBreed AnimalBreed[]
+  id        Int           @id @default(autoincrement())
+  name      String        @unique
+  type      AnimalType    @relation(fields: [typeId], references: [id])
+  typeId    Int
+  breeds    AnimalBreed[]
+  createdAt DateTime      @default(now())
+  updatedAt DateTime      @default(now())
 }
 
 model AnimalBreed {
@@ -45,18 +48,22 @@ model AnimalBreed {
   description String
   category    AnimalCategory @relation(fields: [categoryId], references: [id])
   categoryId  Int
-  Animal      Animal[]
+  animals     Animal[]
+  createdAt   DateTime       @default(now())
+  updatedAt   DateTime       @default(now())
 }
 
 model Animal {
   id          Int         @id @default(autoincrement())
   tag         String
-  imageUrl    String
+  imageUrl    String?
   breed       AnimalBreed @relation(fields: [breedId], references: [id])
   breedId     Int
-  Gender      Gender      @relation(fields: [genderId], references: [id])
+  gender      Gender      @relation(fields: [genderId], references: [id])
   genderId    Int
   bornAt      DateTime
-  purchasedAt DateTime?
+  purchasedAt DateTime
   status      Boolean     @default(true)
+  createdAt   DateTime    @default(now())
+  updatedAt   DateTime    @default(now())
 }

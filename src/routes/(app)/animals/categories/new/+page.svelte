@@ -1,33 +1,26 @@
 <script lang="ts">
-	import AnimalForm from '$lib/forms/AnimalForm.svelte';
+	import AnimalCategoryForm from '$lib/forms/AnimalCategoryForm.svelte';
 	import { pageTitle } from '$lib/stores';
-
-	$pageTitle = 'New Animal';
 
 	export let data: any;
 
+	$pageTitle = 'New Animal Category';
+
 	const formValues = {
-		tag: '',
-		// imageUrl: '',
-		breedId: '',
-		genderId: '',
-		bornAt: '',
-		purchasedAt: 'Jan 1, 1900',
-		genders: data.genders,
+		name: '',
+		typeId: '',
 		types: data.types
 	};
-
-	$: console.log('Animal:', formValues);
 </script>
 
 <form
-	action="/animals"
+	action="/animals/categories"
 	method="post"
 	class="grid max-w-4xl gap-4 rounded bg-white p-4 shadow-lg sm:grid-cols-2"
 >
 	<h1 class="text-xl sm:col-span-2">New Animal</h1>
 
-	<AnimalForm {formValues} />
+	<AnimalCategoryForm {formValues} />
 
 	<div class="flex items-center justify-center space-x-2 sm:col-span-2">
 		<button
@@ -37,7 +30,7 @@
 			Create
 		</button>
 		<a
-			href="/animals"
+			href="/animals/categories"
 			class="rounded-md border border-gray-800 px-2 py-1 hover:bg-gray-800 hover:text-gray-50"
 		>
 			Cancel

@@ -1,6 +1,13 @@
-<svelte:head>
-	<link rel="stylesheet" href="/tutorial/dark-theme.css" />
-</svelte:head>
+<script lang="ts">
+import { browser } from "$app/environment";
+import { goto } from "$app/navigation";
 
-<h1>Welcome to SvelteKit</h1>
-<p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>
+import { onMount } from "svelte";
+
+
+	onMount(()=>{
+		if(browser){
+			goto('/dashboard')
+		}
+	})
+</script>
