@@ -1,0 +1,45 @@
+<script lang="ts">
+	import AnimalForm from '$lib/forms/AnimalForm.svelte';
+	import { pageTitle } from '$lib/stores';
+
+	$pageTitle = 'Animals Management: Edit';
+
+	export let data: any;
+
+	const animal = data.animal;
+	const formValues = {
+		tag: animal.tag,
+		imageUrl: animal.imageUrl,
+		breedId: animal.breedId,
+		genderId: animal.genderId,
+		bornAt: animal.bornAt,
+		purchasedAt: animal.purchasedAt,
+		genders: data.genders,
+		types: data.types
+	};
+</script>
+
+<form
+	action="/animals"
+	method="post"
+	class="grid max-w-4xl gap-4 rounded bg-white p-4 shadow-lg sm:grid-cols-2"
+>
+	<h1 class="text-xl sm:col-span-2">New Animal</h1>
+
+	<AnimalForm />
+
+	<div class="flex items-center justify-center space-x-2 sm:col-span-2">
+		<button
+			type="submit"
+			class="rounded-md border border-green-600 bg-green-600 px-2 py-1 text-white"
+		>
+			Create
+		</button>
+		<a
+			href="/animals"
+			class="rounded-md border border-gray-800 px-2 py-1 hover:bg-gray-800 hover:text-gray-50"
+		>
+			Cancel
+		</a>
+	</div>
+</form>

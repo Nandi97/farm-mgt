@@ -55,13 +55,18 @@
 			{#each animals as item}
 				<tr>
 					<td class="p-2">&nbsp;</td>
-					<td class="p-2">{item.tag}</td>
+					<td class="p-2">
+						<a href={`/animals/${item.id}`} class="text-blue-600 underline">{item.tag}</a>
+					</td>
 					<td class="p-2">{item.breed.name}</td>
 					<td class="p-2">{item.gender.name}</td>
 					<td class="p-2">{item.bornAt}</td>
 					<td class="p-2">{item.purchasedAt}</td>
 					<td class="p-2">{item.status ? 'Active' : 'Inactive'}</td>
-					<td class="p-2">&nbsp;</td>
+					<td class="p-2">
+						<a href={`/animals/${item.id}/edit`} class=" bg-blue-600 px-2 py-1 text-blue-50">Edit</a
+						>
+					</td>
 				</tr>
 			{/each}
 		</tbody>

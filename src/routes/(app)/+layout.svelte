@@ -18,9 +18,9 @@
 <main class="h-screen w-full">
 	<nav class="grid h-10  w-full grid-cols-12">
 		<div
-			class="hidden w-full items-center justify-center border-b border-slate-500 border-opacity-60 bg-green-600 text-2xl  text-gray-50 shadow-md md:col-span-2 md:block"
+			class="hidden w-full items-center justify-center border-b border-slate-500 border-opacity-60 bg-gradient-to-b from-green-600 to-green-500 text-2xl  text-gray-50 shadow-md md:col-span-2 md:block"
 		>
-			<span>Grey's</span>
+			<span class="pl-4">Grey's</span>
 			<span class="-ml-2 font-extralight">Farm</span>
 		</div>
 		<div class="col-span-12  pl-4 text-2xl font-light md:col-span-10">
@@ -28,7 +28,9 @@
 		</div>
 	</nav>
 	<div class="grid h-full w-full grid-cols-12">
-		<div class="h-full w-full bg-green-600 text-green-50 md:col-span-2">
+		<div
+			class="h-full w-full bg-green-600 bg-gradient-to-b from-green-500 to-orange-900 text-green-50 md:col-span-2"
+		>
 			<ul class="space-y-2 p-2">
 				{#each links as item}
 					<li>
