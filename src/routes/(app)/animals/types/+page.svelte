@@ -39,26 +39,26 @@
 	</a>
 </div>
 
-<div class="max-w-3xl rounded-md bg-white p-4 shadow-md">
+<div class="mx-auto max-w-3xl rounded-md bg-white p-4 shadow-md">
 	<table class="w-full table-auto">
 		<thead>
-			<tr>
+			<tr class="bg-gradient-to-b from-slate-200 to-green-200">
 				<th>&nbsp;</th>
-				<th class="text-left">Type</th>
+				<th class="p-2 text-left">Type</th>
 				<th>&nbsp;</th>
 			</tr>
 		</thead>
 		<tbody>
 			{#each types as item}
-				<tr>
-					<td>&nbsp;</td>
-					<td>
+				<tr class="bg-gradient-to-b from-transparent to-slate-100">
+					<td class="p-2">&nbsp;</td>
+					<td class="p-2">
 						<span class="flex items-center space-x-5">
 							<Icon icon={item.icon} />
 							<span>{item.name}</span>
 						</span>
 					</td>
-					<td>&nbsp;</td>
+					<td class="p-2">&nbsp;</td>
 				</tr>
 			{/each}
 		</tbody>

@@ -1,5 +1,5 @@
 import db from '$lib/db';
-import { error } from '@sveltejs/kit';
+import { invalid, redirect, error } from '@sveltejs/kit';
 
 /** @type {import('./$types').PageServerLoad} */
 export async function load() {
@@ -15,24 +15,46 @@ export async function load() {
 }
 
 /** @type {import('./$types').Action} */
-export async function POST({ request }) {
-	const values = await request.formData();
+// export async function POST({ request }) {
+// 	const values = await request.formData();
 
-	const name = /** @type {string} */ values.get('name');
-	const typeId = /** @type {number} */ Number(values.get('typeId'));
+// 	const name = /** @type {string} */ values.get('name');
+// 	const typeId = /** @type {number} */ Number(values.get('typeId'));
 
-	const category = await db.animalCategory.create({
-		data: {
-			name,
-			typeId
+// 	const category = await db.animalCategory.create({
+// 		data: {
+// 			name,
+// 			typeId
+// 		}
+// 	});
+
+// 	if (category) {
+// 		return {
+// 			location: '/animals/categories'
+// 		};
+// 	}
+
+// 	throw error(500, 'Could not create a New Category!');
+// }
+
+export const actions = {
+	default: async ({ request }) => {
+		const values = await request.formData();
+
+		const name = /** @type {string} */ values.get('name');
+		const typeId = /** @type {number} */ Number(values.get('typeId'));
+
+		const category = await db.animalCategory.create({
+			data: {
+				name,
+				typeId
+			}
+		});
+
+		if (category) {
+			throw redirect(303, '/animals/categories');
 		}
-	});
 
-	if (category) {
-		return {
-			location: '/animals/categories'
-		};
+		throw invalid(500, { message: 'Could not create a New Category!' });
 	}
-
-	throw error(500, 'Could not create a New Category!');
-}
+};

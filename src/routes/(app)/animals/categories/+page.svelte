@@ -39,22 +39,22 @@
 	</a>
 </div>
 
-<div class="max-w-3xl rounded-md bg-white shadow-md">
+<div class="rounded-md bg-white p-2 shadow-md">
 	<table class="w-full table-auto">
 		<thead>
-			<tr>
+			<tr class="bg-gradient-to-b from-slate-200 to-green-200">
 				<th>&nbsp;</th>
-				<th class="text-left">Name</th>
-				<th class="text-left">Type</th>
+				<th class="p-2 text-left">Name</th>
+				<th class="p-2 text-left">Type</th>
 				<th>&nbsp;</th>
 			</tr>
 		</thead>
 		<tbody>
 			{#each categories as item}
-				<tr>
+				<tr class="bg-gradient-to-b from-transparent to-slate-100">
 					<td>{item.id}</td>
-					<td>{item.name}</td>
-					<td>{item.type.name}</td>
+					<td class="p-2">{item.name}</td>
+					<td class="p-2">{item.type.name}</td>
 					<td>&nbsp;</td>
 				</tr>
 			{/each}
