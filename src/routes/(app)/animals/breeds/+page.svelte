@@ -48,12 +48,15 @@
 				<th>&nbsp;</th>
 			</tr>
 		</thead>
-		<tbody>
+		<tbody style="height: 50vh;" class="overflow-y-scroll">
 			{#each breeds as item}
 				<tr class="bg-gradient-to-b from-transparent to-slate-100">
 					<td class="p-2">{item.id}</td>
 					<td class="p-2">{item.category.name}</td>
-					<td class="p-2">{item.name}</td>
+					<td class="p-2"
+						><a href={`/animals/breeds/${item.id}`} class="text-blue-600 underline">{item.name}</a
+						></td
+					>
 					<td class="p-2">{item.description}</td>
 					<td class="p-2">&nbsp;</td>
 				</tr>

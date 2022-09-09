@@ -4,7 +4,9 @@ import db from '$lib/db';
 /** @type {import('./$types').PageServerLoad} */
 export async function load({ params }: { params: any }) {
 	const genders = await db.gender.findMany();
-	const types = await db.animalType.findMany();
+	const types = await db.animalType.findMany({
+		include: { categories: { include: { breeds: true } } }
+	});
 	const animal = await db.animal.findUnique({
 		where: {
 			id: parseInt(params.id)

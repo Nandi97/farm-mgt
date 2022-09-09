@@ -53,7 +53,11 @@
 			{#each categories as item}
 				<tr class="bg-gradient-to-b from-transparent to-slate-100">
 					<td>{item.id}</td>
-					<td class="p-2">{item.name}</td>
+					<td class="p-2"
+						><a href={`/animals/categories/${item.id}`} class="text-blue-600 underline"
+							>{item.name}</a
+						></td
+					>
 					<td class="p-2">{item.type.name}</td>
 					<td>&nbsp;</td>
 				</tr>

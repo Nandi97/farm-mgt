@@ -14,14 +14,12 @@
 
 	<title>{$pageTitle ? `${$pageTitle} - ` : ''}Farm Management</title>
 </svelte:head>
-
 <main class="h-screen w-full">
 	<nav class="grid h-10  w-full grid-cols-12">
 		<div
-			class="hidden w-full items-center justify-center border-b border-slate-500 border-opacity-60 bg-gradient-to-b from-green-600 to-green-500 text-2xl  text-gray-50 shadow-md md:col-span-2 md:block"
+			class="hidden w-full items-center justify-center border-b border-slate-500 border-opacity-60 bg-gradient-to-b from-green-600 to-green-500 pl-4 text-2xl  text-gray-50 shadow-md md:col-span-2 md:block"
 		>
-			<span class="pl-4">Grey's</span>
-			<span class="-ml-2 font-extralight">Farm</span>
+			Grey's Farm
 		</div>
 		<div class="col-span-12  pl-4 text-2xl font-light md:col-span-10">
 			{$pageTitle}

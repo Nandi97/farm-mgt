@@ -25,6 +25,7 @@
 		type="text"
 		name="name"
 		id="name"
+		bind:value={formValues.name}
 		class="rounded-md border-0 bg-slate-100 shadow-inner shadow-slate-300"
 	/>
 </div>

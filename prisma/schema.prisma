@@ -67,3 +67,21 @@ model Animal {
   createdAt   DateTime    @default(now())
   updatedAt   DateTime    @default(now())
 }
+
+model Role {
+  id          Int     @id @default(autoincrement())
+  name        String  @unique
+  description String
+  users       Users[]
+}
+
+model Users {
+  id       Int     @id @default(autoincrement())
+  name     String
+  imageUrl String?
+  email    String
+  phoneNo  Int
+  status   Boolean @default(true)
+  role     Role    @relation(fields: [roleId], references: [id])
+  roleId   Int
+}

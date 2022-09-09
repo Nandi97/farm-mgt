@@ -4,13 +4,17 @@
 
 	export let data: any;
 
-	$pageTitle = 'New Animal Category';
+	const category = data.category;
+
+	$pageTitle = 'Edit Animal Category';
 
 	const formValues = {
-		name: '',
-		typeId: '',
+		name: category.name,
+		typeId: category.typeId,
 		types: data.types
 	};
+
+	$: console.log('Category:', formValues);
 </script>
 
 <form
@@ -18,7 +22,7 @@
 	method="post"
 	class="grid max-w-4xl gap-4 rounded bg-white p-4 shadow-lg sm:grid-cols-2"
 >
-	<h1 class="text-xl sm:col-span-2">New Category</h1>
+	<h1 class="text-xl sm:col-span-2">Edit Category</h1>
 
 	<AnimalCategoryForm {formValues} />
 

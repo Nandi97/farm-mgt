@@ -12,21 +12,24 @@
 		imageUrl: animal.imageUrl,
 		breedId: animal.breedId,
 		genderId: animal.genderId,
-		bornAt: animal.bornAt,
-		purchasedAt: animal.purchasedAt,
+		bornAt: new Date(animal.bornAt).toISOString().substring(0, 10),
+		purchasedAt: new Date(animal.purchasedAt).toISOString().substring(0, 10),
 		genders: data.genders,
-		types: data.types
+		types: data.types,
+		breed: animal.breed
 	};
+
+	$: console.log('Animal:', formValues);
 </script>
 
 <form
 	action="/animals"
 	method="post"
-	class="grid max-w-4xl gap-4 rounded bg-white p-4 shadow-lg sm:grid-cols-2"
+	class="grid max-w-4xl gap-4 rounded bg-white p-4 shadow-lg sm:grid-cols-3"
 >
-	<h1 class="text-xl sm:col-span-2">New Animal</h1>
+	<h1 class="text-xl sm:col-span-3">Edit Animal</h1>
 
-	<AnimalForm />
+	<AnimalForm {formValues} />
 
 	<div class="flex items-center justify-center space-x-2 sm:col-span-2">
 		<button

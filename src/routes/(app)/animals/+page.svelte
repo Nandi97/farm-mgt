@@ -1,6 +1,7 @@
 <script lang="ts">
+	import { format } from 'date-fns';
 	import Icon from '@iconify/svelte';
-	import { pageTitle } from '$lib/stores';
+	import { formatDate, pageTitle } from '$lib/stores';
 
 	export let data: any;
 
@@ -13,7 +14,7 @@
 	<div class="flex items-center divide-x">
 		<a
 			href="/animals/types"
-			class="rounded-l-md bg-gray-800 px-4 py-1 text-gray-50 hover:bg-opacity-70"
+			class="rounded-l-md bg-gray-800 px-4 py-1 text-gray-50 hover:bg-opacity-70 hover:shadow-inner"
 		>
 			Types
 		</a>
@@ -40,7 +41,7 @@
 <div class="rounded-md bg-white p-4 shadow-lg">
 	<table class="w-full table-auto">
 		<thead>
-			<tr>
+			<tr class="text-left">
 				<th class="p-2">&nbsp;</th>
 				<th class="p-2">Tag</th>
 				<th class="p-2">Breed</th>
@@ -54,17 +55,20 @@
 		<tbody>
 			{#each animals as item}
 				<tr>
-					<td class="p-2">&nbsp;</td>
+					<td class="p-2">{item.id}</td>
 					<td class="p-2">
 						<a href={`/animals/${item.id}`} class="text-blue-600 underline">{item.tag}</a>
 					</td>
 					<td class="p-2">{item.breed.name}</td>
 					<td class="p-2">{item.gender.name}</td>
-					<td class="p-2">{item.bornAt}</td>
-					<td class="p-2">{item.purchasedAt}</td>
+					<td class="p-2">{formatDate(item.bornAt)}</td>
+					<td class="p-2">{formatDate(item.purchasedAt)}</td>
 					<td class="p-2">{item.status ? 'Active' : 'Inactive'}</td>
 					<td class="p-2">
-						<a href={`/animals/${item.id}/edit`} class=" bg-blue-600 px-2 py-1 text-blue-50">Edit</a
+						<a
+							href={`/animals/${item.id}/edit`}
+							class="rounded-md bg-blue-600 px-2 py-1 text-blue-50 shadow-md hover:shadow-inner"
+							>Edit</a
 						>
 					</td>
 				</tr>
