@@ -19,15 +19,17 @@
 		breed: animal.breed
 	};
 
-	$: console.log('Animal:', formValues);
+	// $: console.log('Animal:', formValues);
 </script>
 
 <form
-	action="/animals"
+	action={`/animals/${animal.id}`}
 	method="post"
 	class="grid max-w-4xl gap-4 rounded bg-white p-4 shadow-lg sm:grid-cols-3"
 >
 	<h1 class="text-xl sm:col-span-3">Edit Animal</h1>
+
+	<input type="hidden" name="id" bind:value={animal.id} />
 
 	<AnimalForm {formValues} />
 
@@ -36,7 +38,7 @@
 			type="submit"
 			class="rounded-md border border-green-600 bg-green-600 px-2 py-1 text-white"
 		>
-			Create
+			Update
 		</button>
 		<a
 			href="/animals"

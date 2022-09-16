@@ -3,20 +3,13 @@ import db from '$lib/db';
 
 /** @type {import('./$types').PageServerLoad} */
 export async function load({ params }: { params: any }) {
-	const breed = await db.animalBreed.findUnique({
+	const type = await db.animalType.findUnique({
 		where: {
 			id: parseInt(params.id)
-		},
-		include: {
-			category: {
-				include: {
-					type: true
-				}
-			}
 		}
 	});
 
-	if (breed) return { breed };
+	if (type) return { type };
 
 	throw error(404, 'Animal Not Found!');
 }
@@ -26,24 +19,22 @@ export const actions = {
 		const values = await request.formData();
 
 		const name = /** @type {string} */ values.get('name');
-		const description = /** @type {string} */ values.get('description');
-		const categoryId = /** @type {number} */ Number(values.get('categoryId'));
+		const icon = /** @type {string} */ values.get('icon');
 
-		const breed = await db.animalBreed.update({
+		const type = await db.animalType.update({
 			where: {
 				id: parseInt(params.id)
 			},
 			data: {
 				name,
-				description,
-				categoryId
+				icon
 			}
 		});
 
-		if (breed) {
-			throw redirect(303, '/animals/breeds');
+		if (type) {
+			throw redirect(303, '/animals/types');
 		}
 
-		throw invalid(500, { message: 'Could not update Animal!' });
+		throw invalid(500, { message: 'Could not update Animal Type!' });
 	}
 };

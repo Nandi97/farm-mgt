@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { pageTitle } from '$lib/stores';
 	import Icon from '@iconify/svelte';
+	import {} from 'os';
 
 	export let data: any;
 
@@ -58,7 +59,12 @@
 							<span>{item.name}</span>
 						</span>
 					</td>
-					<td class="p-2">&nbsp;</td>
+					<td class="p-2"
+						><a
+							class="rounded-md bg-blue-700 px-2 py-1 text-blue-50 shadow-md hover:bg-blue-500 hover:shadow-inner"
+							href={`/animals/types/${item.id}/edit`}>edit</a
+						></td
+					>
 				</tr>
 			{/each}
 		</tbody>

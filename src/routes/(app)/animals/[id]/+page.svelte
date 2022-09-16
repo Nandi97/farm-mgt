@@ -1,7 +1,6 @@
 <script lang="ts">
 	import { pageTitle } from '$lib/stores';
 	import Icon from '@iconify/svelte';
-	import {} from 'os';
 
 	export let data: any;
 
@@ -21,7 +20,7 @@
 		>
 		<a
 			href={`/animals/${animal.id}/edit`}
-			class=" flex w-12  flex-col items-center bg-green-500 p-1 text-green-50 hover:bg-green-700"
+			class="flex w-12  flex-col items-center bg-green-500 p-1 text-green-50 hover:bg-green-700"
 			><Icon icon="mdi-pencil" />
 			<span>edit</span>
 		</a>

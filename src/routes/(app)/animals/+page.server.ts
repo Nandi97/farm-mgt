@@ -45,7 +45,7 @@ export async function load() {
 // }
 
 export const actions = {
-	default: async ({ request }) => {
+	default: async ({ request }: { request: any }) => {
 		const values = await request.formData();
 
 		const tag = /** @type {string} */ values.get('tag');

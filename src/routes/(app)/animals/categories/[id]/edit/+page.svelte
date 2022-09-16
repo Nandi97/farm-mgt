@@ -6,7 +6,7 @@
 
 	const category = data.category;
 
-	$pageTitle = 'Edit Animal Category';
+	$pageTitle = `Edit Animal Category: ${category.name}`;
 
 	const formValues = {
 		name: category.name,
@@ -18,7 +18,7 @@
 </script>
 
 <form
-	action="/animals/categories"
+	action={`/animals/categories/${category.id}`}
 	method="post"
 	class="grid max-w-4xl gap-4 rounded bg-white p-4 shadow-lg sm:grid-cols-2"
 >
@@ -31,7 +31,7 @@
 			type="submit"
 			class="rounded-md border border-green-600 bg-green-600 px-2 py-1 text-white"
 		>
-			Create
+			Update
 		</button>
 		<a
 			href="/animals/categories"

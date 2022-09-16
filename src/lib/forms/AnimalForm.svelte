@@ -10,7 +10,7 @@
 				(item: any) => item.id === formValues?.breed?.category?.type?.id
 			);
 
-			console.log('Animal Type:', animalType);
+			// console.log('Animal Type:', animalType);
 
 			animalCategory = animalType?.categories?.find((item: any) => formValues?.breed?.category?.id);
 		}

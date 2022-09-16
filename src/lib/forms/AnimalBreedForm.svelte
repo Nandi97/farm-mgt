@@ -2,6 +2,16 @@
 	export let formValues: any;
 
 	let animalType: any;
+
+	$: {
+		if (formValues.category) {
+			animalType = formValues?.types?.find(
+				(item: any) => item.id === formValues?.category?.type?.id
+			);
+
+			// console.log('Animal Breed:', animalType);
+		}
+	}
 </script>
 
 <div class="flex flex-col space-y-1">
@@ -43,6 +53,7 @@
 		name="name"
 		id="name"
 		placeholder="Breed Name"
+		bind:value={formValues.name}
 		class="rounded-md border-0 bg-slate-100 shadow-inner shadow-slate-300"
 	/>
 </div>
@@ -54,6 +65,7 @@
 		name="description"
 		id="description"
 		placeholder="Description..."
+		bind:value={formValues.description}
 		class="h-40 rounded-md border-0 bg-slate-100 shadow-inner shadow-slate-300"
 	/>
 </div>
