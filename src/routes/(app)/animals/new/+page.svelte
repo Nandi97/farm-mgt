@@ -23,7 +23,7 @@
 <form
 	action="/animals"
 	method="post"
-	class="grid max-w-4xl gap-4 rounded bg-white p-4 shadow-lg sm:grid-cols-3"
+	class="mx-auto grid max-w-4xl gap-4 rounded bg-white p-4 shadow-lg sm:grid-cols-3"
 >
 	<h1 class="text-xl sm:col-span-3">New Animal</h1>
 

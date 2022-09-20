@@ -1,28 +1,29 @@
 <script lang="ts">
-	import AnimalTypeForm from '$lib/forms/AnimalTypeForm.svelte';
+	import UnitOfMeasureForm from '$lib/forms/UnitOfMeasureForm.svelte';
 	import { pageTitle } from '$lib/stores';
-
+	import {} from 'os';
 	export let data: any;
 
-	const type = data.type;
+	const uom = data.uom;
 
-	$: console.log('Animal type:', type);
+	// $: console.log('Unit of Measure:', uom);
 
 	const formValues = {
-		name: type.name,
-		icon: type.icon
+		unit: uom.unit,
+		initial: uom.initial
 	};
 
-	$pageTitle = `Animal Type: Edit ${type.name} `;
+	$pageTitle = `Unit Of Measure: Edit ${uom.unit}`;
 </script>
 
 <form
-	action={`/animals/types/${type.id}`}
+	action={`/uoms/${uom.id}`}
 	method="post"
-	class="grid max-w-3xl gap-4 rounded-md bg-white p-4 shadow-md sm:grid-cols-2"
+	class="mx-auto grid max-w-4xl gap-4 rounded bg-white p-4 shadow-lg sm:grid-cols-2"
 >
-	<h1 class="text-xl sm:col-span-3">{`Edit ${type.name}`}</h1>
-	<AnimalTypeForm {formValues} />
+	<h1 class="text-xl sm:col-span-3">{`Edit ${uom.unit}`}</h1>
+
+	<UnitOfMeasureForm {formValues} />
 
 	<div class="flex items-center justify-center space-x-2 sm:col-span-2">
 		<button
@@ -32,7 +33,7 @@
 			Update
 		</button>
 		<a
-			href="/animals/types"
+			href="/uoms"
 			class="rounded-md border border-gray-800 px-2 py-1 hover:bg-gray-800 hover:text-gray-50"
 		>
 			Cancel

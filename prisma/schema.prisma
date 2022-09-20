@@ -85,3 +85,19 @@ model Users {
   role     Role    @relation(fields: [roleId], references: [id])
   roleId   Int
 }
+
+model UnitsOfMeasurement {
+  id      Int        @id @default(autoincrement())
+  unit    String
+  initial String
+  product Products[]
+}
+
+model Products {
+  is                   Int                @id @default(autoincrement())
+  Uom                  UnitsOfMeasurement @relation(fields: [unitsOfMeasurementId], references: [id])
+  unitsOfMeasurementId Int
+  name                 String
+  imageUrl             String?
+  status               Boolean            @default(true)
+}
