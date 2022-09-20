@@ -18,19 +18,20 @@
 
 <div class="sm:col-span-1">
 	<div class="flex flex-col space-y-1">
-		<label for="uomId" class="text-xs">Unit of Measurement</label>
-		<select
-			type="number"
-			name="uomId"
-			id="uomId"
-			bind:value={formValues.uomId}
-			class="rounded-md border-0 bg-slate-100 shadow-inner shadow-slate-300"
-		>
-			<option disabled selected value>--Select Unit of Measurement--</option>
+		<label for="uomId" class="text-xs">Animal Type</label>
+	<select
+		name="uomId"
+		id="uomId"
+		class="rounded-md border-0 bg-slate-100 shadow-inner shadow-slate-300"
+		bind:value={formValues.uomId}
+	>
+		<option disabled selected value>--Select Animal Type--</option>
+		{#if formValues.uoms && formValues.uoms.length}
 			{#each formValues.uoms as item}
 				<option value={item.id}>{item.unit}</option>
 			{/each}
-		</select>
+		{/if}
+	</select>
 	</div>
 
 	<div class="flex flex-col space-y-1">

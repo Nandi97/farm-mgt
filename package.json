@@ -53,5 +53,8 @@
 	"type": "module",
 	"prisma": {
 		"seed": "node --loader ts-node/esm prisma/seed.ts"
+	},
+	"dependencies": {
+		"pnpm": "^7.12.1"
 	}
 }
