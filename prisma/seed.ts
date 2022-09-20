@@ -25,10 +25,10 @@ function getAnimalTypes() {
 
 function getUnitsOfMeasurement() {
 	return [
-		{ unit: 'Kilogram', initial: 'Kg' },
+		{ unit: 'Kilogram', initial: 'kg' },
 		{ unit: 'Gram', initial: 'g' },
-		{ unit: 'Litre', initial: 'Ltr' },
-		{ unit: 'Milliliters', initial: 'Ml' },
+		{ unit: 'Litre', initial: 'ltr' },
+		{ unit: 'Milliliters', initial: 'ml' },
 		{ unit: 'Piece', initial: 'pc' },
 		{ unit: 'Tray', initial: 'tray' }
 	];
