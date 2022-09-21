@@ -38,6 +38,7 @@ async function seed() {
 	const menus = getMenus();
 	const genders = getGenders();
 	const animalTypes = getAnimalTypes();
+	// const animalCategories = getAnimalCategories();
 	const unitsOfMeasurement = getUnitsOfMeasurement();
 
 	for (const item of menus) {

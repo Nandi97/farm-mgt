@@ -48,7 +48,7 @@
 				<th>&nbsp;</th>
 			</tr>
 		</thead>
-		<tbody style="height: 50vh;" class="overflow-y-scroll">
+		<tbody style="height: 80vh;" class="overflow-y-scroll">
 			{#each breeds as item}
 				<tr class="bg-gradient-to-b from-transparent to-slate-100">
 					<td class="p-2">{item.id}</td>

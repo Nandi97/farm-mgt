@@ -1,18 +1,18 @@
 <script lang="ts">
 	import ProductsForm from '$lib/forms/ProductsForm.svelte';
 	import { pageTitle } from '$lib/stores';
-	
+
 	export let data: any;
 
 	$pageTitle = 'New Product';
 
-
 	const formValues = {
-		imageUrl:'',
-		name:'',
-		uomId: data.uoms
+		imageUrl: '',
+		name: '',
+		uomId: '',
+		uoms: data.uoms
 	};
-	
+
 	$: console.log('Product:', formValues);
 </script>
 
@@ -23,7 +23,7 @@
 >
 	<h1 class="text-xl sm:col-span-3">New Product</h1>
 
-	<ProductsForm {formValues} /> 
+	<ProductsForm {formValues} />
 
 	<div class="flex items-center justify-center space-x-2 sm:col-span-3">
 		<button

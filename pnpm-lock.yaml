@@ -38,7 +38,7 @@ devDependencies:
   '@playwright/test': 1.25.1
   '@prisma/client': 4.3.1_prisma@4.3.1
   '@sveltejs/adapter-auto': 1.0.0-next.76
-  '@sveltejs/kit': 1.0.0-next.490_qevq5tvhizyxp44gfhkn6m3ljq
+  '@sveltejs/kit': 1.0.0-next.491_qevq5tvhizyxp44gfhkn6m3ljq
   '@tailwindcss/forms': 0.5.3_tailwindcss@3.1.8
   '@types/node': 18.7.15
   '@typescript-eslint/eslint-plugin': 5.36.1_lbwfnm54o3pmr3ypeqp3btnera
@@ -296,8 +296,8 @@ packages:
       - supports-color
     dev: true
 
-  /@sveltejs/kit/1.0.0-next.490_qevq5tvhizyxp44gfhkn6m3ljq:
-    resolution: {integrity: sha512-CxaP59RaFytMIO/I0tSKCZOJGIh87IKkSRYsNIjtEgENdjbs695KB9JieraEL908la+ujPMQLdXJmrC730fJzQ==}
+  /@sveltejs/kit/1.0.0-next.491_qevq5tvhizyxp44gfhkn6m3ljq:
+    resolution: {integrity: sha512-KO/t0OPxBWF5ZXp8RtIOVkQczo8NPHD6xqRVpSe/gZy9MmCmW/vhK2ifsENjayutyUNi7GzvrBgPyD91YHtm5g==}
     engines: {node: '>=16.14'}
     hasBin: true
     requiresBuild: true

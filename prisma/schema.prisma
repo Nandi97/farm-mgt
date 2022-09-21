@@ -95,9 +95,8 @@ model UnitsOfMeasurement {
 
 model Products {
   id       Int                @id @default(autoincrement())
+  imageUrl String?
   uom      UnitsOfMeasurement @relation(fields: [uomId], references: [id])
   uomId    Int
   name     String
-  imageUrl String?
-  status   Boolean            @default(true)
 }

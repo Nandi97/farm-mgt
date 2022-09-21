@@ -6,10 +6,9 @@
 
 	$pageTitle = 'Products';
 
-// $: console.log('Products', data);
+	// $: console.log('Products', data);
 
-$: products = data.products;
-
+	$: products = data.products;
 </script>
 
 <div class="flex w-full justify-end space-x-2 pb-4 text-sm">
@@ -46,9 +45,7 @@ $: products = data.products;
 				<tr class="bg-gradient-to-b from-transparent to-slate-100">
 					<td>{item.id}</td>
 					<td class="p-2"
-						><a href={`/productss/${item.id}`} class="text-blue-600 underline"
-							>{item.name}</a
-						></td
+						><a href={`/products/${item.id}`} class="text-blue-600 underline">{item.name}</a></td
 					>
 					<td class="p-2">{item.uom.unit}</td>
 					<td>&nbsp;</td>
