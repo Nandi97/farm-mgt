@@ -3,7 +3,7 @@ import { error, redirect, invalid } from '@sveltejs/kit';
 
 /** @type {import('./$types')./PageServerLoad} */
 export async function load() {
-	const uoms = await db.unitsOfMeasurement.findMany();
+	const uoms = await db.unitOfMeasurement.findMany();
 
 	if (uoms) return { uoms };
 
@@ -17,7 +17,7 @@ export const actions = {
 		const unit = /** @type {string} */ values.get('unit');
 		const initial = /** @type {string} */ values.get('initial');
 
-		const uom = await db.unitsOfMeasurement.create({
+		const uom = await db.unitOfMeasurement.create({
 			data: {
 				unit,
 				initial

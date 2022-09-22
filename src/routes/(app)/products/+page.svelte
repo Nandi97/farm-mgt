@@ -48,7 +48,14 @@
 						><a href={`/products/${item.id}`} class="text-blue-600 underline">{item.name}</a></td
 					>
 					<td class="p-2">{item.uom.unit}</td>
-					<td>&nbsp;</td>
+					<td
+						><a
+							href={`/products/${item.id}/edit`}
+							class="flex w-12 items-center  rounded-md bg-blue-500 p-1 text-sm text-green-50 hover:bg-blue-700"
+							><Icon icon="mdi-pencil" />
+							<span>edit</span>
+						</a></td
+					>
 				</tr>
 			{/each}
 		</tbody>

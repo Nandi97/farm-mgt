@@ -1,5 +1,6 @@
 import db from '$lib/db';
 import { error, redirect, invalid } from '@sveltejs/kit';
+import * as fs from 'fs/promises';
 
 /** @type {import('./$types').PageServerLoad} */
 export async function load() {
@@ -53,10 +54,19 @@ export const actions = {
 		const genderId = /** @type {number} */ Number(values.get('genderId'));
 		const bornAt = new Date(values.get('bornAt'));
 		const purchasedAt = new Date(values.get('purchasedAt') || '1900-01-01');
+		const animalImage = values.get('imageUrl') as File;
+		let imageUrl;
+
+		if (animalImage) {
+			await fs.writeFile(`static/images/${tag}.webp`, animalImage.stream());
+
+			imageUrl = `/images/${tag}.webp`;
+		}
 
 		const animal = await db.animal.create({
 			data: {
 				tag,
+				imageUrl,
 				breedId,
 				genderId,
 				bornAt,

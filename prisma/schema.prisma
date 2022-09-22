@@ -69,34 +69,34 @@ model Animal {
 }
 
 model Role {
-  id          Int     @id @default(autoincrement())
-  name        String  @unique
+  id          Int    @id @default(autoincrement())
+  name        String @unique
   description String
-  users       Users[]
+  users       User[]
 }
 
-model Users {
+model User {
   id       Int     @id @default(autoincrement())
   name     String
   imageUrl String?
   email    String
-  phoneNo  Int
+  phoneNo  String
   status   Boolean @default(true)
   role     Role    @relation(fields: [roleId], references: [id])
   roleId   Int
 }
 
-model UnitsOfMeasurement {
-  id      Int        @id @default(autoincrement())
-  unit    String
-  initial String
-  product Products[]
+model UnitOfMeasurement {
+  id       Int       @id @default(autoincrement())
+  unit     String
+  initial  String
+  products Product[]
 }
 
-model Products {
-  id       Int                @id @default(autoincrement())
+model Product {
+  id       Int               @id @default(autoincrement())
   imageUrl String?
-  uom      UnitsOfMeasurement @relation(fields: [uomId], references: [id])
+  uom      UnitOfMeasurement @relation(fields: [uomId], references: [id])
   uomId    Int
   name     String
 }

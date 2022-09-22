@@ -1,4 +1,5 @@
 <script lang="ts">
+	import Icon from '@iconify/svelte';
 	export let formValues: any;
 </script>
 
@@ -10,6 +11,7 @@
 			name="imageUrl"
 			id="imageUrl"
 			placeholder="Animal Image"
+			accept=".png,.jpg"
 			bind:value={formValues.imageUrl}
 			class="rounded-md border-0 bg-slate-100 shadow-inner shadow-slate-300"
 		/>

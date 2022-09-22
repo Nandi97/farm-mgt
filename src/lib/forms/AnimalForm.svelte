@@ -3,6 +3,8 @@
 
 	let animalType: any;
 	let animalCategory: any;
+	let animalImage: any;
+	let animalPlaceholder: any;
 
 	$: {
 		if (formValues.breed) {
@@ -15,6 +17,25 @@
 			animalCategory = animalType?.categories?.find((item: any) => formValues?.breed?.category?.id);
 		}
 	}
+
+	const onAnimalImageSelected = (event: any) => {
+		// console.log('Animal Image selected:', event);
+		const files = event?.target?.files;
+		const filename = files[0]?.name;
+		// console.log('filename:', filename);
+
+		if (filename.lastIndexOf('.') <= 0) return alert('Invalid image format');
+
+		const fileReader = new FileReader();
+
+		fileReader.readAsDataURL(files[0]);
+
+		fileReader.onload = (e: any) => {
+			formValues.imageUrl = e?.target?.result;
+			animalPlaceholder = e?.target?.result;
+			// console.log('animalPlaceholder:', animalPlaceholder);
+		};
+	};
 </script>
 
 <div class="sm:col-span-1">
@@ -25,9 +46,20 @@
 			name="imageUrl"
 			id="imageUrl"
 			placeholder="Animal Image"
-			bind:value={formValues.imageUrl}
-			class="rounded-md border-0 bg-slate-100 shadow-inner shadow-slate-300"
+			class="hidden"
+			on:change={(e) => onAnimalImageSelected(e)}
+			bind:this={animalImage}
 		/>
+		<div
+			class="h-full w-full cursor-pointer rounded-md border-2 border-slate-200 bg-slate-200"
+			on:click={() => animalImage.click()}
+		>
+			<img
+				src={formValues.imageUrl ? animalPlaceholder : '/images/animal_placeholder.jpg'}
+				alt="animal placeholder"
+				class="h-64 w-full rounded-md object-contain"
+			/>
+		</div>
 	</div>
 </div>
 

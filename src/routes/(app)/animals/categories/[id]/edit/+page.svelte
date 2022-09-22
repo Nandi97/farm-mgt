@@ -6,7 +6,7 @@
 
 	const category = data.category;
 
-	$pageTitle = `Edit Animal Category: ${category.name}`;
+	$pageTitle = `Edit : ${category.name} Category`;
 
 	const formValues = {
 		name: category.name,
@@ -14,7 +14,7 @@
 		types: data.types
 	};
 
-	$: console.log('Category:', formValues);
+	// $: console.log('Category:', formValues);
 </script>
 
 <form

@@ -3,7 +3,7 @@ import db from '$lib/db';
 
 /** @type {import ('./$types') .PageServerLoad} */
 export async function load() {
-	const products = await db.products.findMany({
+	const products = await db.product.findMany({
 		include: {
 			uom: true
 		}
@@ -22,7 +22,7 @@ export const actions = {
 		const name = /** @type {string} */ values.get('name');
 		const uomId = /** @type {number} */ Number(values.get('uomId'));
 
-		const product = await db.products.create({
+		const product = await db.product.create({
 			data: {
 				name,
 				uomId

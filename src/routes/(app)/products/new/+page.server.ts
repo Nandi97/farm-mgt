@@ -3,7 +3,7 @@ import { error } from '@sveltejs/kit';
 
 /** @type {import('./$types').PageServerLoad} */
 export async function load() {
-	const uoms = await db.unitsOfMeasurement.findMany();
+	const uoms = await db.unitOfMeasurement.findMany();
 
 	if (uoms) {
 		return { uoms };

@@ -10,36 +10,36 @@
 	$pageTitle = `Animals Management: ${animal?.tag}`;
 </script>
 
-<div class="flex w-full justify-end space-x-2 pb-4 text-sm">
-	<div class="flex items-center divide-x">
-		<a
-			href="/animals"
-			class="flex w-12 flex-col items-center rounded-l-md bg-blue-500 p-1 text-blue-50 hover:bg-blue-700"
-			><Icon icon="mdi-arrow-left" />
-			<span>back</span></a
-		>
-		<a
-			href={`/animals/${animal.id}/edit`}
-			class="flex w-12  flex-col items-center bg-green-500 p-1 text-green-50 hover:bg-green-700"
-			><Icon icon="mdi-pencil" />
-			<span>edit</span>
-		</a>
-		<a
-			href="#"
-			class="flex w-12 flex-col items-center rounded-r-md bg-red-500 p-1 text-red-50 hover:bg-red-700"
-		>
-			<Icon icon="mdi-delete-outline" />
-			<span>Delete</span>
-		</a>
-	</div>
-</div>
+<div class="flex w-full justify-end space-x-2 pb-4 text-sm" />
 
 <div class="rounded-md bg-white p-4 shadow-lg">
 	<div class="grid grid-cols-12">
+		<div class="w-full border-b font-thin md:col-span-12">
+			<div class="text-3xl">{animal?.tag}</div>
+			<div class="flex items-center divide-x text-sm">
+				<a
+					href="/animals"
+					class="flex w-12 flex-col items-center rounded-l-md bg-blue-500 p-1 text-blue-50 hover:bg-blue-700"
+					><Icon icon="mdi-arrow-left" />
+					<span>back</span></a
+				>
+				<a
+					href={`/animals/${animal.id}/edit`}
+					class="flex w-12  flex-col items-center bg-green-500 p-1 text-green-50 hover:bg-green-700"
+					><Icon icon="mdi-pencil" />
+					<span>edit</span>
+				</a>
+				<a
+					href="#"
+					class="flex w-12 flex-col items-center rounded-r-md bg-red-500 p-1 text-red-50 hover:bg-red-700"
+				>
+					<Icon icon="mdi-delete-outline" />
+					<span>Delete</span>
+				</a>
+			</div>
+		</div>
 		<div class="md:col-span-4">
-			<div class="w-full border-b font-thin">{animal?.tag}</div>
-
-			<img src={animal.imageUrl} alt="animal image" />
+			<img src={animal.imageUrl} alt="animal image" class="mt-2" />
 		</div>
 		<div class="md:col-span-8">
 			<div class="w-full border-b font-thin">Deatils</div>

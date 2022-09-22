@@ -3,7 +3,7 @@ import db from '$lib/db';
 
 /** @type {import('./$types').PageServerLoad} */
 export async function load({ params }: { params: any }) {
-	const uom = await db.unitsOfMeasurement.findUnique({
+	const uom = await db.unitOfMeasurement.findUnique({
 		where: {
 			id: parseInt(params.id)
 		}
@@ -21,7 +21,7 @@ export const actions = {
 		const unit = /** @type {string} */ values.get('unit');
 		const initial = /** @type {string} */ values.get('initial');
 
-		const uom = await db.unitsOfMeasurement.update({
+		const uom = await db.unitOfMeasurement.update({
 			where: {
 				id: parseInt(params.id)
 			},

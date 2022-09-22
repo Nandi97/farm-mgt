@@ -3,7 +3,7 @@ import db from '$lib/db';
 
 /** @type {import('./$types').PageServerLoad} */
 export async function load({ params }: { params: any }) {
-	const uom = await db.unitsOfMeasurement.findUnique({
+	const uom = await db.unitOfMeasurement.findUnique({
 		where: {
 			id: parseInt(params.id)
 		}

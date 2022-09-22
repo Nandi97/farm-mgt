@@ -19,7 +19,8 @@
 		"fixer": "pnpm run format && pnpm run lint",
 		"watch": "pnpm run fixer && pnpm run dev",
 		"db:init": "pnpx prisma init --datasource-provider sqlite",
-		"db:migrate": "pnpx prisma migrate dev --name init"
+		"db:migrate": "pnpx prisma migrate dev --name init",
+		"db:reset": "pnpx prisma migrate reset"
 	},
 	"devDependencies": {
 		"@iconify/svelte": "^2.2.1",

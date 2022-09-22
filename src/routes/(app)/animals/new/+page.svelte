@@ -12,7 +12,7 @@
 		breedId: '',
 		genderId: '',
 		bornAt: '',
-		purchasedAt: 'Jan 1, 1900',
+		purchasedAt: '',
 		genders: data.genders,
 		types: data.types
 	};
