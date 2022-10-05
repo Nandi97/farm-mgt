@@ -54,18 +54,19 @@ model AnimalBreed {
 }
 
 model Animal {
-  id          Int         @id @default(autoincrement())
+  id          Int          @id @default(autoincrement())
   tag         String
   imageUrl    String?
-  breed       AnimalBreed @relation(fields: [breedId], references: [id])
+  breed       AnimalBreed  @relation(fields: [breedId], references: [id])
   breedId     Int
-  gender      Gender      @relation(fields: [genderId], references: [id])
+  gender      Gender       @relation(fields: [genderId], references: [id])
   genderId    Int
   bornAt      DateTime
   purchasedAt DateTime
-  status      Boolean     @default(true)
-  createdAt   DateTime    @default(now())
-  updatedAt   DateTime    @updatedAt
+  status      Boolean      @default(true)
+  createdAt   DateTime     @default(now())
+  updatedAt   DateTime     @updatedAt
+  productions Production[]
 }
 
 model Role {
@@ -76,14 +77,15 @@ model Role {
 }
 
 model User {
-  id       Int     @id @default(autoincrement())
-  name     String
-  imageUrl String?
-  email    String
-  phoneNo  String
-  status   Boolean @default(true)
-  role     Role    @relation(fields: [roleId], references: [id])
-  roleId   Int
+  id          Int          @id @default(autoincrement())
+  name        String
+  imageUrl    String?
+  email       String
+  phoneNo     String
+  status      Boolean      @default(true)
+  role        Role         @relation(fields: [roleId], references: [id])
+  roleId      Int
+  productions Production[]
 }
 
 model UnitOfMeasurement {
@@ -94,9 +96,22 @@ model UnitOfMeasurement {
 }
 
 model Product {
-  id       Int               @id @default(autoincrement())
-  imageUrl String?
-  uom      UnitOfMeasurement @relation(fields: [uomId], references: [id])
-  uomId    Int
-  name     String
+  id          Int               @id @default(autoincrement())
+  imageUrl    String?
+  uom         UnitOfMeasurement @relation(fields: [uomId], references: [id])
+  uomId       Int
+  name        String
+  productions Production[]
+}
+
+model Production {
+  id            Int      @id @default(autoincrement())
+  product       Product  @relation(fields: [productId], references: [id])
+  productId     Int
+  animal        Animal   @relation(fields: [animalId], references: [id])
+  animalId      Int
+  collector     User     @relation(fields: [collectorId], references: [id])
+  collectorId   Int
+  quantity      String
+  producionDate DateTime
 }

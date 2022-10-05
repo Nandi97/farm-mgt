@@ -5,8 +5,10 @@ const prisma = new PrismaClient();
 function getMenus() {
 	return [
 		{ name: 'Dashboard', path: '/dashboard', icon: 'mdi-home' },
+		{ name: 'Staff Management', path: '/users', icon: 'mdi-account-group-outline' },
 		{ name: 'Animals', path: '/animals', icon: 'mdi-cow' },
-		{ name: 'Products', path: '/products', icon: 'mdi-package-variant' }
+		{ name: 'Products', path: '/products', icon: 'mdi-package-variant' },
+		{ name: 'Production Management', path: '/production', icon: 'mdi-factory' }
 	];
 }
 
