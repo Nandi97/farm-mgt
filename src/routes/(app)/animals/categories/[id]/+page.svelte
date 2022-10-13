@@ -5,7 +5,7 @@
 	export let data: any;
 
 	const category = data.category;
-	// $: console.log('Category:', category);
+	$: console.log('Category:', category);
 
 	$pageTitle = `Animal Category: ${category?.name}`;
 </script>
@@ -23,7 +23,7 @@
 			><Icon icon="mdi-pencil" /><span>edit</span></a
 		>
 		<a
-			href="#"
+			href="/"
 			class="flex w-12 flex-col items-center rounded-r-md bg-red-500 p-1 text-red-50 hover:bg-red-700"
 			><Icon icon="mdi-delete-outline" /><span>Delete</span></a
 		>
