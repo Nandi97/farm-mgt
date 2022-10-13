@@ -6,7 +6,7 @@
 
 	$pageTitle = 'Animal Categories';
 
-	$: console.log('Categories', data);
+	// $: console.log('Categories', data);
 
 	$: categories = data.categories;
 </script>
@@ -58,7 +58,7 @@
 							>{item.name}</a
 						></td
 					>
-					<td class="p-2">{item.type.name}</td>
+					<td class="p-2">{item.animal_type.name}</td>
 					<td>&nbsp;</td>
 				</tr>
 			{/each}

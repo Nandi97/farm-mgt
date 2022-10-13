@@ -9,7 +9,7 @@
 
 	// $: console.log('Data:', data);
 
-	$: types = data.types;
+	$: types = data?.types;
 </script>
 
 <div class="flex w-full justify-end space-x-2 pb-4 text-sm">
@@ -40,33 +40,39 @@
 	</a>
 </div>
 
-<div class="mx-auto max-w-3xl rounded-md bg-white p-4 shadow-md">
-	<table class="w-full table-auto">
-		<thead>
-			<tr class="bg-gradient-to-b from-slate-200 to-green-200">
-				<th>&nbsp;</th>
-				<th class="p-2 text-left">Type</th>
-				<th>&nbsp;</th>
-			</tr>
-		</thead>
-		<tbody>
-			{#each types as item}
-				<tr class="bg-gradient-to-b from-transparent to-slate-100">
-					<td class="p-2">&nbsp;</td>
-					<td class="p-2">
-						<span class="flex items-center space-x-5">
-							<Icon icon={item.icon} />
-							<span>{item.name}</span>
-						</span>
-					</td>
-					<td class="p-2"
-						><a
-							class="rounded-md bg-blue-700 px-2 py-1 text-blue-50 shadow-md hover:bg-blue-500 hover:shadow-inner"
-							href={`/animals/types/${item.id}/edit`}>edit</a
-						></td
-					>
+{#if types}
+	<div class="mx-auto max-w-3xl rounded-md bg-white p-4 shadow-md">
+		<table class="w-full table-auto">
+			<thead>
+				<tr class="bg-gradient-to-b from-slate-200 to-green-200">
+					<th>&nbsp;</th>
+					<th class="p-2 text-left">Type</th>
+					<th>&nbsp;</th>
 				</tr>
-			{/each}
-		</tbody>
-	</table>
-</div>
+			</thead>
+			<tbody>
+				{#each types as item}
+					<tr class="bg-gradient-to-b from-transparent to-slate-100">
+						<td class="p-2">&nbsp;</td>
+						<td class="p-2">
+							<span class="flex items-center space-x-5">
+								<Icon icon={item.icon} />
+								<span
+									><a href={`/animals/types/${item.id}`} class="text-blue-600 underline"
+										>{item.name}</a
+									></span
+								>
+							</span>
+						</td>
+						<td class="p-2"
+							><a
+								class="rounded-md bg-blue-700 px-2 py-1 text-blue-50 shadow-md hover:bg-blue-500 hover:shadow-inner"
+								href={`/animals/types/${item.id}/edit`}>edit</a
+							></td
+						>
+					</tr>
+				{/each}
+			</tbody>
+		</table>
+	</div>
+{/if}

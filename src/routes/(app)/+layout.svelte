@@ -25,7 +25,7 @@
 				class="hidden w-1/2 items-center justify-center border-b border-r border-gray-300 border-opacity-80 bg-green-600 bg-gradient-to-b from-green-600 to-green-500 pl-4 text-2xl  text-green-50 shadow-md md:col-span-2 md:block md:w-1/6  lg:block lg:w-1/6"
 			>
 				<span class="font-light">Grey's</span>
-				<span class="-ml-2 font-bold">Farm</span>
+				<span class="font-bold">Farm</span>
 			</div>
 
 			<div class="flex w-full flex-1 items-center justify-between overflow-hidden bg-gray-50 p-3">

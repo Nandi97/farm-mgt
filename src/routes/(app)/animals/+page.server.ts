@@ -1,3 +1,4 @@
+// import { axios } from 'axios';
 import db from '$lib/db';
 import { error, redirect, invalid } from '@sveltejs/kit';
 import * as fs from 'fs/promises';
@@ -10,6 +11,9 @@ export async function load() {
 			gender: true
 		}
 	});
+
+	// const res = await axios.get('http://localhost:8000/api/animals');
+	// const animals = await res.data;
 
 	if (animals) return { animals };
 

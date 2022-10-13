@@ -10,7 +10,7 @@
 
 	const formValues = {
 		name: category.name,
-		typeId: category.typeId,
+		typeId: category.animal_type_id,
 		types: data.types
 	};
 

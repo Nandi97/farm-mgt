@@ -1,16 +1,19 @@
 import { error, redirect, invalid } from '@sveltejs/kit';
-import db from '$lib/db';
+// import db from '$lib/db';
+import axios from 'axios';
 
 /** @type {import('./$types').PageServerLoad} */
 export async function load({ params }: { params: any }) {
-	const category = await db.animalCategory.findUnique({
-		where: {
-			id: parseInt(params.id)
-		},
-		include: {
-			type: true
-		}
-	});
+	// const category = await db.animalCategory.findUnique({
+	// 	where: {
+	// 		id: parseInt(params.id)
+	// 	},
+	// 	include: {
+	// 		type: true
+	// 	}
+	// });
+
+	const category = await axios.get(`http://localhost:8000/api/animal_categories/${params.id}`);
 
 	if (category) return { category };
 
@@ -22,17 +25,26 @@ export const actions = {
 		const values = await request.formData();
 
 		const name = /** @type {string} */ values.get('name');
-		const typeId = /** @type {number} */ Number(values.get('typeId'));
+		const animal_type_id = /** @type {number} */ Number(values.get('typeId'));
 
-		const category = await db.animalCategory.update({
-			where: {
-				id: parseInt(params.id)
-			},
-			data: {
-				name,
-				typeId
-			}
-		});
+		// const category = await db.animalCategory.update({
+		// 	where: {
+		// 		id: parseInt(params.id)
+		// 	},
+		// 	data: {
+		// 		name,
+		// 		typeId
+		// 	}
+		// });
+		const payload = {
+			name,
+			animal_type_id
+		};
+
+		const category = await axios.patch(
+			`http://localhost:8000/api/animal_categories/${params.id}`,
+			payload
+		);
 
 		if (category) {
 			throw redirect(303, '/animals/categories');
