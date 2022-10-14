@@ -1,5 +1,5 @@
 import axios from 'axios';
-import db from '$lib/db';
+// import db from '$lib/db';
 import { invalid, redirect, error } from '@sveltejs/kit';
 
 /** @type {import('./$types').PageServerLoad} */

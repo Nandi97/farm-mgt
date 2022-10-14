@@ -38,8 +38,8 @@
 		bind:value={formValues.categoryId}
 	>
 		<option disabled selected value>--Select Animal Category--</option>
-		{#if animalType && animalType.categories && animalType.categories.length}
-			{#each animalType.categories as item}
+		{#if animalType && animalType.animal_categories && animalType.animal_categories.length}
+			{#each animalType.animal_categories as item}
 				<option value={item.id}>{item.name}</option>
 			{/each}
 		{/if}

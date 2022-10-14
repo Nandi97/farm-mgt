@@ -1,6 +1,6 @@
+import axios from 'axios';
 import { error, redirect, invalid } from '@sveltejs/kit';
 // import db from '$lib/db';
-import axios from 'axios';
 
 /** @type {import('./$types').PageServerLoad} */
 export async function load({ params }: { params: any }) {
@@ -13,7 +13,10 @@ export async function load({ params }: { params: any }) {
 	// 	}
 	// });
 
-	const category = await axios.get(`http://localhost:8000/api/animal_categories/${params.id}`);
+	const res = await axios.get(`http://localhost:8000/api/animal_categories/${params.id}`);
+	const category = await res?.data;
+
+	// console.log('Category:', category);
 
 	if (category) return { category };
 

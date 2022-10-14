@@ -46,13 +46,13 @@
 		<div class="flex w-28 items-center">
 			<Icon icon="mdi-source-branch" class="mr-2 text-blue-600" /><span>Category: </span>
 		</div>
-		<span class="pl-5">{breed.category.name}</span>
+		<span class="pl-5">{breed.animal_category.name}</span>
 	</div>
 	<div class="flex items-start border-b border-gray-300">
 		<div class="flex w-28 items-center">
 			<Icon icon="mdi-file-tree-outline" class="mr-2 text-blue-600" /><span>Type: </span>
 		</div>
-		<span class="pl-5">{breed.category.type.name}</span>
+		<span class="pl-5">{breed.animal_category.animal_type.name}</span>
 	</div>
 	<div class="flex items-start">
 		<div class="flex w-28 items-center">

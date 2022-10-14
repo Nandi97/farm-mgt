@@ -1,20 +1,24 @@
+import axios from 'axios';
 import { error, redirect, invalid } from '@sveltejs/kit';
-import db from '$lib/db';
+// import db from '$lib/db';
 
 /** @type {import('./$types').PageServerLoad} */
 export async function load({ params }: { params: any }) {
-	const breed = await db.animalBreed.findUnique({
-		where: {
-			id: parseInt(params.id)
-		},
-		include: {
-			category: {
-				include: {
-					type: true
-				}
-			}
-		}
-	});
+	// const breed = await db.animalBreed.findUnique({
+	// 	where: {
+	// 		id: parseInt(params.id)
+	// 	},
+	// 	include: {
+	// 		category: {
+	// 			include: {
+	// 				type: true
+	// 			}
+	// 		}
+	// 	}
+	// });
+
+	const res = await axios.get(`http://localhost:8000/api/animal_breeds/${params.id}`);
+	const breed = await res?.data;
 
 	if (breed) return { breed };
 
@@ -27,19 +31,23 @@ export const actions = {
 
 		const name = /** @type {string} */ values.get('name');
 		const description = /** @type {string} */ values.get('description');
-		const categoryId = /** @type {number} */ Number(values.get('categoryId'));
+		const animal_category_id = /** @type {number} */ Number(values.get('categoryId'));
 
-		const breed = await db.animalBreed.update({
-			where: {
-				id: parseInt(params.id)
-			},
-			data: {
-				name,
-				description,
-				categoryId
-			}
+		// const breed = await db.animalBreed.update({
+		// 	where: {
+		// 		id: parseInt(params.id)
+		// 	},
+		// 	data: {
+		// 		name,
+		// 		description,
+		// 		categoryId
+		// 	}
+		// });
+		const breed = await axios.patch(`http://localhost:8000/api/animal_breeds/${params.id}`, {
+			name,
+			description,
+			animal_category_id
 		});
-
 		if (breed) {
 			throw redirect(303, '/animals/breeds');
 		}

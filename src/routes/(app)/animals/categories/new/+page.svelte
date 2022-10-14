@@ -2,9 +2,9 @@
 	import AnimalCategoryForm from '$lib/forms/AnimalCategoryForm.svelte';
 	import { pageTitle } from '$lib/stores';
 
-	export let data: any;
-
 	$pageTitle = 'New Animal Category';
+
+	export let data: any;
 
 	const formValues = {
 		name: '',
@@ -20,7 +20,7 @@
 	method="post"
 	class="grid max-w-4xl gap-4 rounded bg-white p-4 shadow-lg sm:grid-cols-2"
 >
-	<h1 class="text-xl sm:col-span-2">New Category</h1>
+	<h1 class="text-xl sm:col-span-2">New Animal Category</h1>
 
 	<AnimalCategoryForm {formValues} />
 
