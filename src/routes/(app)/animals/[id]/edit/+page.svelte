@@ -9,17 +9,17 @@
 	const animal = data.animal;
 	const formValues = {
 		tag: animal.tag,
-		imageUrl: animal.imageUrl,
-		breedId: animal.breedId,
-		genderId: animal.genderId,
-		bornAt: new Date(animal.bornAt).toISOString().substring(0, 10),
-		purchasedAt: new Date(animal.purchasedAt).toISOString().substring(0, 10),
+		imageUrl: animal.image_url,
+		breedId: animal.animal_breed_id,
+		genderId: animal.gender_id,
+		bornAt: new Date(animal.born_at).toISOString().substring(0, 10),
+		purchasedAt: new Date(animal.purchased_at).toISOString().substring(0, 10),
 		genders: data.genders,
 		types: data.types,
-		breed: animal.breed
+		breed: animal.animal_breed
 	};
 
-	// $: console.log('Animal:', formValues);
+	$: console.log('Animal:', formValues);
 </script>
 
 <form

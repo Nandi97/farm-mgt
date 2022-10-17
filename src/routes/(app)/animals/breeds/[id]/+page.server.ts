@@ -43,11 +43,15 @@ export const actions = {
 		// 		categoryId
 		// 	}
 		// });
-		const breed = await axios.patch(`http://localhost:8000/api/animal_breeds/${params.id}`, {
+		const payload = {
 			name,
 			description,
 			animal_category_id
-		});
+		};
+		const breed = await axios.patch(
+			`http://localhost:8000/api/animal_breeds/${params.id}`,
+			payload
+		);
 		if (breed) {
 			throw redirect(303, '/animals/breeds');
 		}

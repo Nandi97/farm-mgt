@@ -6,7 +6,7 @@
 	$: {
 		if (formValues.category) {
 			animalType = formValues?.types?.find(
-				(item: any) => item.id === formValues?.category?.type?.id
+				(item: any) => item.id === formValues?.category?.animal_type_id
 			);
 
 			// console.log('Animal Breed:', animalType);

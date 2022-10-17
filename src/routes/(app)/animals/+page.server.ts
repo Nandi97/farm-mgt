@@ -1,19 +1,21 @@
-// import { axios } from 'axios';
-import db from '$lib/db';
+import axios from 'axios';
+// import db from '$lib/db';
 import { error, redirect, invalid } from '@sveltejs/kit';
 import * as fs from 'fs/promises';
 
 /** @type {import('./$types').PageServerLoad} */
 export async function load() {
-	const animals = await db.animal.findMany({
-		include: {
-			breed: true,
-			gender: true
-		}
-	});
+	// const animals = await db.animal.findMany({
+	// 	include: {
+	// 		breed: true,
+	// 		gender: true
+	// 	}
+	// });
 
-	// const res = await axios.get('http://localhost:8000/api/animals');
-	// const animals = await res.data;
+	const res = await axios.get('http://localhost:8000/api/animals');
+	const animals = await res.data;
+
+	// console.log('Animals:', animals);
 
 	if (animals) return { animals };
 
@@ -54,10 +56,10 @@ export const actions = {
 		const values = await request.formData();
 
 		const tag = /** @type {string} */ values.get('tag');
-		const breedId = /** @type {number} */ Number(values.get('breedId'));
-		const genderId = /** @type {number} */ Number(values.get('genderId'));
-		const bornAt = new Date(values.get('bornAt'));
-		const purchasedAt = new Date(values.get('purchasedAt') || '1900-01-01');
+		const animal_breed_id = /** @type {number} */ Number(values.get('breedId'));
+		const gender_id = /** @type {number} */ Number(values.get('genderId'));
+		const born_at = new Date(values.get('bornAt'));
+		const purchased_at = new Date(values.get('purchasedAt') || '1900-01-01');
 		const animalImage = values.get('imageUrl') as File;
 		let imageUrl;
 
@@ -67,15 +69,24 @@ export const actions = {
 			imageUrl = `/images/${tag}.webp`;
 		}
 
-		const animal = await db.animal.create({
-			data: {
-				tag,
-				imageUrl,
-				breedId,
-				genderId,
-				bornAt,
-				purchasedAt
-			}
+		// const animal = await db.animal.create({
+		// 	data: {
+		// 		tag,
+		// 		imageUrl,
+		// 		breedId,
+		// 		genderId,
+		// 		bornAt,
+		// 		purchasedAt
+		// 	}
+		// });
+
+		const animal = await axios.post('http://localhost:8000/api/animals', {
+			tag,
+			imageUrl,
+			animal_breed_id,
+			gender_id,
+			born_at,
+			purchased_at
 		});
 
 		if (animal) {

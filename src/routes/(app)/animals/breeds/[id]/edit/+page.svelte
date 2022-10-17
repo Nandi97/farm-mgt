@@ -9,10 +9,10 @@
 	const breed = data.breed;
 	const formValues = {
 		name: breed.name,
-		categoryId: breed.categoryId,
+		categoryId: breed.animal_category_id,
 		description: breed.description,
 		types: data.types,
-		category: breed.category
+		category: breed.animal_category
 	};
 
 	$: console.log('Breed:', formValues);

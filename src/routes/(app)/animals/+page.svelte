@@ -8,6 +8,8 @@
 	$pageTitle = 'Animals';
 
 	$: animals = data.animals;
+
+	// $: console.log('Animals:', animals);
 </script>
 
 <div class="flex w-full justify-end space-x-2 pb-4 text-sm">
@@ -59,10 +61,10 @@
 					<td class="p-2">
 						<a href={`/animals/${item.id}`} class="text-blue-600 underline">{item.tag}</a>
 					</td>
-					<td class="p-2">{item.breed.name}</td>
+					<td class="p-2">{item.animal_breed.name}</td>
 					<td class="p-2">{item.gender.name}</td>
-					<td class="p-2">{formatDate(item.bornAt)}</td>
-					<td class="p-2">{formatDate(item.purchasedAt)}</td>
+					<td class="p-2">{formatDate(item.born_at)}</td>
+					<td class="p-2">{formatDate(item.purchased_at)}</td>
 					<td class="p-2">{item.status ? 'Active' : 'Inactive'}</td>
 					<td class="p-2">
 						<a

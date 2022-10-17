@@ -9,12 +9,14 @@
 	$: {
 		if (formValues.breed) {
 			animalType = formValues?.types?.find(
-				(item: any) => item.id === formValues?.breed?.category?.type?.id
+				(item: any) => item.id === formValues?.breed?.animal_category?.animal_type_id
 			);
 
-			// console.log('Animal Type:', animalType);
+			animalCategory = animalType?.animal_categories?.find(
+				(item: any) => formValues?.breed?.animal_category_id
+			);
 
-			animalCategory = animalType?.categories?.find((item: any) => formValues?.breed?.category?.id);
+			// console.log('Animal Category:', animalCategory);
 		}
 	}
 
@@ -116,8 +118,8 @@
 			bind:value={animalCategory}
 		>
 			<option disabled selected value>--Select Category--</option>
-			{#if animalType && animalType.categories && animalType.categories.length}
-				{#each animalType.categories as item}
+			{#if animalType && animalType.animal_categories && animalType.animal_categories.length}
+				{#each animalType.animal_categories as item}
 					<option value={item}>{item.name}</option>
 				{/each}
 			{/if}

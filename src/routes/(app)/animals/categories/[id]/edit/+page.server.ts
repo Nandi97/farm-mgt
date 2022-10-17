@@ -19,7 +19,7 @@ export async function load({ params }: { params: any }) {
 	const res2 = await axios.get(`http://localhost:8000/api/animal_categories/${params.id}`);
 	const category = res2?.data;
 
-	console.log('Category:', category);
+	// console.log('Category:', category);
 
 	if (category && types) return { category, types };
 
