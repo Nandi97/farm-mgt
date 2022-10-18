@@ -1,16 +1,20 @@
+import axios from 'axios';
 import { error, redirect, invalid } from '@sveltejs/kit';
-import db from '$lib/db';
+import * as fs from 'fs/promises';
 
 /** @type {import('./$types').PageServerLoad} */
 export async function load({ params }: { params: any }) {
-	const product = await db.product.findUnique({
-		where: {
-			id: parseInt(params.id)
-		},
-		include: {
-			uom: true
-		}
-	});
+	// const product = await db.product.findUnique({
+	// 	where: {
+	// 		id: parseInt(params.id)
+	// 	},
+	// 	include: {
+	// 		uom: true
+	// 	}
+	// });
+
+	const res = await axios.get(`http://localhost:8000/api/products/${params.id}`);
+	const product = await res?.data;
 
 	if (product) return { product };
 
@@ -22,16 +26,30 @@ export const actions = {
 		const values = await request.formData();
 
 		const name = /** @type {string} */ values.get('name');
-		const uomId = /** @type {number} */ Number(values.get('uomId'));
+		const uom_id = /** @type {number} */ Number(values.get('uomId'));
+		const productImage = values.get('imageUrl') as File;
+		let image_url;
 
-		const product = await db.product.update({
-			where: {
-				id: parseInt(params.id)
-			},
-			data: {
-				name,
-				uomId
-			}
+		if (productImage) {
+			await fs.writeFile(`static/images/${name}.webp`, productImage.stream());
+
+			image_url = `/images/${name}.webp`;
+		}
+
+		// const product = await db.product.update({
+		// 	where: {
+		// 		id: parseInt(params.id)
+		// 	},
+		// 	data: {
+		// 		name,
+		// 		uomId
+		// 	}
+		// });
+
+		const product = await axios.post(`http://localhost:8000/api/products/${params.id}`, {
+			name,
+			image_url,
+			uom_id
 		});
 
 		if (product) {

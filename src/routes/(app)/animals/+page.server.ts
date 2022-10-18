@@ -58,16 +58,17 @@ export const actions = {
 		const tag = /** @type {string} */ values.get('tag');
 		const animal_breed_id = /** @type {number} */ Number(values.get('breedId'));
 		const gender_id = /** @type {number} */ Number(values.get('genderId'));
-		const born_at = new Date(values.get('bornAt'));
-		const purchased_at = new Date(values.get('purchasedAt') || '1900-01-01');
+		const born_at = values.get('bornAt');
+		const purchased_at = values.get('purchasedAt') || '1900-01-01';
 		const animalImage = values.get('imageUrl') as File;
-		let imageUrl;
+		let image_url;
 
 		if (animalImage) {
 			await fs.writeFile(`static/images/${tag}.webp`, animalImage.stream());
 
-			imageUrl = `/images/${tag}.webp`;
+			image_url = `/images/${tag}.webp`;
 		}
+		// const image_url = values.get('imageUrl');
 
 		// const animal = await db.animal.create({
 		// 	data: {
@@ -80,9 +81,10 @@ export const actions = {
 		// 	}
 		// });
 
+		// try {
 		const animal = await axios.post('http://localhost:8000/api/animals', {
 			tag,
-			imageUrl,
+			image_url,
 			animal_breed_id,
 			gender_id,
 			born_at,
@@ -92,7 +94,12 @@ export const actions = {
 		if (animal) {
 			throw redirect(303, '/animals');
 		}
-
+		// } catch (error) {
+		// 	console.log('--------------------------------------');
+		// 	console.log(new Date());
+		// 	console.log('--------------------------------------');
+		// 	console.error('Animal Post:', error);
 		throw invalid(500, { message: 'Could not create a New Category!' });
+		// }
 	}
 };

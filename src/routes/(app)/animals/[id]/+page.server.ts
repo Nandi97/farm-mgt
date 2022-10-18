@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { error, redirect, invalid } from '@sveltejs/kit';
-import db from '$lib/db';
+// import db from '$lib/db';
+import * as fs from 'fs/promises';
 
 /** @type {import('./$types').PageServerLoad} */
 export async function load({ params }: { params: any }) {
@@ -37,8 +38,16 @@ export const actions = {
 		const tag = /** @type {string} */ values.get('tag');
 		const animal_breed_id = /** @type {number} */ Number(values.get('breedId'));
 		const gender_id = /** @type {number} */ Number(values.get('genderId'));
-		const born_at = new Date(values.get('bornAt'));
-		const purchased_at = new Date(values.get('purchasedAt') || '1900-01-01');
+		const born_at = values.get('bornAt');
+		const purchased_at = values.get('purchasedAt') || '1900-01-01';
+		const animalImage = values.get('imageUrl') as File;
+		let image_url;
+
+		if (animalImage) {
+			await fs.writeFile(`static/images/${tag}.webp`, animalImage.stream());
+
+			image_url = `/images/${tag}.webp`;
+		}
 
 		// const animal = await db.animal.update({
 		// 	where: {
@@ -56,6 +65,7 @@ export const actions = {
 
 		const payload = {
 			tag,
+			image_url,
 			animal_breed_id,
 			gender_id,
 			born_at,

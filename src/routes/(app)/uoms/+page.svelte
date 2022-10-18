@@ -9,25 +9,30 @@
 	$: uoms = data.uoms;
 </script>
 
-<div class="flex w-full justify-end space-x-2 pb-4 text-sm">
+<div class="flex w-full justify-between space-x-2 pb-4 text-sm">
 	<div class="flex items-center divide-x">
 		<a href="/products" class="rounded-l-md bg-gray-800 px-4 py-1 text-gray-50 hover:bg-opacity-70"
 			>Products</a
 		>
-		<button
-			type="button"
-			class="cursor-not-allowed rounded-r-md bg-green-600 px-4 py-1 text-gray-50"
+		<a
+			href="/production"
+			class="rounded-r-md bg-gray-800 px-4 py-1 text-gray-50 hover:bg-opacity-70"
 		>
+			Pruduction Management
+		</a>
+	</div>
+	<div class="flex space-x-2">
+		<button type="button" class="cursor-not-allowed rounded-md bg-green-600 px-4 py-1 text-gray-50">
 			Units Of Measurement
 		</button>
+		<a
+			href="/uoms/new"
+			class="flex items-center space-x-2 rounded bg-gray-800 px-4 py-1 text-gray-50 hover:bg-opacity-70"
+		>
+			<Icon icon="mdi-plus" />
+			<span>New Unit</span>
+		</a>
 	</div>
-	<a
-		href="/uoms/new"
-		class="flex items-center space-x-2 rounded bg-gray-800 px-4 py-1 text-gray-50 hover:bg-opacity-70"
-	>
-		<Icon icon="mdi-plus" />
-		<span>New Unit</span>
-	</a>
 </div>
 
 <div class="max-w-md rounded-md bg-white p-2 shadow-md">

@@ -1,7 +1,7 @@
 <script lang="ts">
 	import UnitOfMeasureForm from '$lib/forms/UnitOfMeasureForm.svelte';
 	import { pageTitle } from '$lib/stores';
-	import {} from 'os';
+
 	export let data: any;
 
 	const uom = data.uom;

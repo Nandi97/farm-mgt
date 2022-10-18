@@ -5,7 +5,7 @@
 	export let data: any;
 
 	const product = data.product;
-	$: console.log('Product:', product);
+	// $: console.log('Product:', product);
 
 	$pageTitle = `Product: ${product?.name}`;
 </script>
@@ -39,7 +39,7 @@
 			</div>
 		</div>
 		<div class="md:col-span-4">
-			<img src={product.imageUrl} alt="product image" />
+			<img src={product.image_url} alt="product image" />
 		</div>
 		<div class="md:col-span-8">
 			<div class="w-full font-thin">Deatils:</div>

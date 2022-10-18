@@ -4,7 +4,7 @@
 	let animalType: any;
 	let animalCategory: any;
 	let animalImage: any;
-	let animalPlaceholder: any;
+	// let animalPlaceholder: any;
 
 	$: {
 		if (formValues.breed) {
@@ -34,7 +34,7 @@
 
 		fileReader.onload = (e: any) => {
 			formValues.imageUrl = e?.target?.result;
-			animalPlaceholder = e?.target?.result;
+			// animalPlaceholder = e?.target?.result;
 			// console.log('animalPlaceholder:', animalPlaceholder);
 		};
 	};
@@ -57,7 +57,7 @@
 			on:click={() => animalImage.click()}
 		>
 			<img
-				src={formValues.imageUrl ? animalPlaceholder : '/images/animal_placeholder.jpg'}
+				src={formValues.imageUrl ? formValues.imageUrl : '/images/add_image_placeholder.webp'}
 				alt="animal placeholder"
 				class="h-64 w-full rounded-md object-contain"
 			/>
@@ -136,8 +136,8 @@
 			bind:value={formValues.breedId}
 		>
 			<option disabled selected value>--Select Animal Type--</option>
-			{#if animalCategory && animalCategory.breeds && animalCategory.breeds.length}
-				{#each animalCategory.breeds as item}
+			{#if animalCategory && animalCategory.animal_breeds && animalCategory.animal_breeds.length}
+				{#each animalCategory.animal_breeds as item}
 					<option value={item.id}>{item.name}</option>
 				{/each}
 			{/if}

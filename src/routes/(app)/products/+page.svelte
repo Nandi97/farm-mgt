@@ -11,23 +11,31 @@
 	$: products = data.products;
 </script>
 
-<div class="flex w-full justify-end space-x-2 pb-4 text-sm">
+<div class="flex w-full justify-between space-x-2 pb-4 text-sm">
 	<div class="flex items-center divide-x">
 		<button
 			type="button"
 			class="cursor-not-allowed rounded-l-md bg-green-600 px-4 py-1 text-gray-50">Products</button
 		>
-		<a href="/uoms" class="rounded-r-md bg-gray-800 px-4 py-1 text-gray-50 hover:bg-opacity-70">
-			Units Of Measurement
+		<a
+			href="/production"
+			class="rounded-r-md bg-gray-800 px-4 py-1 text-gray-50 hover:bg-opacity-70"
+		>
+			Pruduction Management
 		</a>
 	</div>
-	<a
-		href="/products/new"
-		class="flex items-center space-x-2 rounded bg-gray-800 px-4 py-1 text-gray-50 hover:bg-opacity-70"
-	>
-		<Icon icon="mdi-plus" />
-		<span>New Product</span>
-	</a>
+	<div class="flex space-x-2">
+		<a href="/uoms" class="rounded-md bg-gray-800 px-4 py-1 text-gray-50 hover:bg-opacity-70">
+			Unit of Measurement
+		</a>
+		<a
+			href="/products/new"
+			class="flex items-center space-x-2 rounded bg-gray-800 px-4 py-1 text-gray-50 hover:bg-opacity-70"
+		>
+			<Icon icon="mdi-plus" />
+			<span>New Product</span>
+		</a>
+	</div>
 </div>
 
 <div class="rounded-md bg-white p-2 shadow-md">

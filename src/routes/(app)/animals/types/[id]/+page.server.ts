@@ -14,7 +14,7 @@ export async function load({ params }: { params: any }) {
 	const res = await axios.get(`http://localhost:8000/api/animal_types/${params.id}`);
 	const type = await res?.data;
 
-	console.log('Type:', type);
+	// console.log('Type:', type);
 
 	if (type) return { type };
 

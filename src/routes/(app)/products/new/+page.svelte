@@ -13,12 +13,13 @@
 		uoms: data.uoms
 	};
 
-	$: console.log('Product:', formValues);
+	// $: console.log('Product:', formValues);
 </script>
 
 <form
 	action="/products"
 	method="post"
+	enctype="multipart/form-data"
 	class="mx-auto grid max-w-4xl gap-4 rounded bg-white p-4 shadow-lg sm:grid-cols-2"
 >
 	<h1 class="text-xl sm:col-span-3">New Product</h1>

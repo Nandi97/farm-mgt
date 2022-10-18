@@ -1,6 +1,27 @@
 <script lang="ts">
 	import Icon from '@iconify/svelte';
 	export let formValues: any;
+
+	let productImage: any;
+
+	const onProductImageSelected = (event: any) => {
+		// console.log('Product Image selected:', event);
+		const files = event?.target?.files;
+		const filename = files[0]?.name;
+		// console.log('filename:', filename);
+
+		if (filename.lastIndexOf('.') <= 0) return alert('Invalid image format');
+
+		const fileReader = new FileReader();
+
+		fileReader.readAsDataURL(files[0]);
+
+		fileReader.onload = (e: any) => {
+			formValues.imageUrl = e?.target?.result;
+			// productPlaceholder = e?.target?.result;
+			// console.log('productPlaceholder:', productPlaceholder);
+		};
+	};
 </script>
 
 <div class="sm:col-span-1">
@@ -10,11 +31,21 @@
 			type="file"
 			name="imageUrl"
 			id="imageUrl"
-			placeholder="Animal Image"
-			accept=".png,.jpg"
-			bind:value={formValues.imageUrl}
-			class="rounded-md border-0 bg-slate-100 shadow-inner shadow-slate-300"
+			placeholder="Product Image"
+			class="hidden"
+			on:change={(e) => onProductImageSelected(e)}
+			bind:this={productImage}
 		/>
+		<div
+			class="h-full w-full cursor-pointer rounded-md border-2 border-slate-200 bg-slate-200"
+			on:click={() => productImage.click()}
+		>
+			<img
+				src={formValues.imageUrl ? formValues.imageUrl : '/images/add_image_placeholder.webp'}
+				alt="product placeholder"
+				class="h-64 w-full rounded-md object-contain"
+			/>
+		</div>
 	</div>
 </div>
 

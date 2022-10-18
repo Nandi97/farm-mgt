@@ -19,12 +19,13 @@
 		breed: animal.animal_breed
 	};
 
-	$: console.log('Animal:', formValues);
+	// $: console.log('Animal:', formValues);
 </script>
 
 <form
 	action={`/animals/${animal.id}`}
 	method="post"
+	enctype="multipart/form-data"
 	class="grid max-w-4xl gap-4 rounded bg-white p-4 shadow-lg sm:grid-cols-3"
 >
 	<h1 class="text-xl sm:col-span-3">Edit Animal</h1>

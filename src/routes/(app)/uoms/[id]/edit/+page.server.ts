@@ -1,13 +1,16 @@
 import { error } from '@sveltejs/kit';
-import db from '$lib/db';
+import axios from 'axios';
 
 /** @type {import('./$types').PageServerLoad} */
 export async function load({ params }: { params: any }) {
-	const uom = await db.unitOfMeasurement.findUnique({
-		where: {
-			id: parseInt(params.id)
-		}
-	});
+	// const uom = await db.unitOfMeasurement.findUnique({
+	// 	where: {
+	// 		id: parseInt(params.id)
+	// 	}
+	// });
+
+	const res = await axios.get(`http://localhost:8000/api/uoms/${params.id}`);
+	const uom = await res?.data;
 
 	if (uom) return { uom };
 
