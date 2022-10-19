@@ -1,13 +1,12 @@
-import db from '$lib/db';
+import axios from 'axios';
 import { error } from '@sveltejs/kit';
 
 /**@type {import('./$types').PageServerLoad} */
 export async function load() {
-	const users = await db.user.findMany({
-		include: {
-			role: true
-		}
-	});
+	const res = await axios.get('http://localhost:8000/api/users');
+	const users = await res.data;
+
+	// console.log('Users:', users);
 
 	if (users) return { users };
 

@@ -45,12 +45,9 @@ export const actions = {
 		// 		uomId
 		// 	}
 		// });
+		const payload = { name, image_url, uom_id };
 
-		const product = await axios.post(`http://localhost:8000/api/products/${params.id}`, {
-			name,
-			image_url,
-			uom_id
-		});
+		const product = await axios.patch(`http://localhost:8000/api/products/${params.id}`, payload);
 
 		if (product) {
 			throw redirect(303, '/products');
