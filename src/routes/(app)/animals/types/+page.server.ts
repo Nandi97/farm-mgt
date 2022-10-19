@@ -21,13 +21,6 @@ export const actions = {
 		const name = /** @type {string} */ values.get('name');
 		const icon = /** @type {string} */ values.get('icon');
 
-		// const type = await db.animalType.create({
-		// 	data: {
-		// 		name,
-		// 		icon
-		// 	}
-		// });
-
 		const type = await axios.post('http://localhost:8000/api/animal_types', { name, icon });
 
 		if (type) {

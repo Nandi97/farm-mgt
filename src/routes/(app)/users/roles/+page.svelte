@@ -51,7 +51,7 @@
 						<td class="p-2">
 							<span class="flex items-center space-x-5">
 								<span
-									><a href={`/animals/types/${item.id}`} class="text-blue-600 underline"
+									><a href={`/users/roles/${item.id}`} class="text-blue-600 underline"
 										>{item.name}</a
 									></span
 								>

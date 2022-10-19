@@ -6,7 +6,7 @@
 
 	const type = data.type;
 
-	$: console.log('Animal type:', type);
+	// $: console.log('Animal type:', type);
 
 	const formValues = {
 		name: type.name,

@@ -18,7 +18,7 @@ export async function load({ params }: { params: any }) {
 
 	if (type) return { type };
 
-	throw error(404, 'Animal Not Found!');
+	throw error(404, 'Animal Type Not Found!');
 }
 
 export const actions = {

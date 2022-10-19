@@ -35,7 +35,7 @@
 	</div>
 </div>
 
-<div class="mx-auto rounded-md bg-white p-4 shadow-lg">
+<div class="rounded-md bg-white p-4 shadow-lg">
 	<div class="flex items-center">
 		<div class="flex w-24 items-center">
 			<Icon icon="mdi-file-tree-outline" class="mr-2 text-blue-600" /><span>Category: </span>
