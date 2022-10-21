@@ -4,15 +4,6 @@ import * as fs from 'fs/promises';
 
 /** @type {import('./$types').PageServerLoad} */
 export async function load({ params }: { params: any }) {
-	// const product = await db.product.findUnique({
-	// 	where: {
-	// 		id: parseInt(params.id)
-	// 	},
-	// 	include: {
-	// 		uom: true
-	// 	}
-	// });
-
 	const res = await axios.get(`http://localhost:8000/api/products/${params.id}`);
 	const product = await res?.data;
 

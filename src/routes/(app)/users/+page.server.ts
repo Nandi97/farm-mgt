@@ -1,5 +1,6 @@
 import axios from 'axios';
-import { error } from '@sveltejs/kit';
+import { error, redirect, invalid } from '@sveltejs/kit';
+import * as fs from 'fs/promises';
 
 /**@type {import('./$types').PageServerLoad} */
 export async function load() {
@@ -12,3 +13,35 @@ export async function load() {
 
 	throw error(404, 'Not found');
 }
+
+export const actions = {
+	default: async ({ request }: { request: any }) => {
+		const values = await request.formData();
+
+		const name = /** @type {string} */ values.get('name');
+		const email = /** @type {string} */ values.get('email');
+		const phone_no = /** @type {number} */ Number(values.get('phoneNo'));
+		const joined_at = values.get('joinedAt');
+		const userAvatar = values.get('avatarUrl') as File;
+		let avatar_url;
+
+		if (userAvatar) {
+			await fs.writeFile(`static/images/${name}.webp`, userAvatar.stream());
+
+			avatar_url = `/images/${name}.webp`;
+		}
+
+		const user = await axios.post('http://localhost:8000/api/users', {
+			name,
+			email,
+			phone_no,
+			joined_at,
+			avatar_url
+		});
+
+		if (user) {
+			throw redirect(303, '/users');
+		}
+		throw invalid(500, { message: 'Could not create a New User!' });
+	}
+};

@@ -25,27 +25,26 @@
 </script>
 
 <div class="sm:col-span-1">
-	<div class="flex flex-col space-y-1">
-		<label for="imageUrl" class="text-xs">Product Image</label>
-		<input
-			type="file"
-			name="imageUrl"
-			id="imageUrl"
-			placeholder="Product Image"
-			class="hidden"
-			on:change={(e) => onProductImageSelected(e)}
-			bind:this={productImage}
+	<div class="flex flex-col space-y-1" />
+	<label for="imageUrl" class="text-xs">Product Image</label>
+	<input
+		type="file"
+		name="imageUrl"
+		id="imageUrl"
+		placeholder="Product Image"
+		class="hidden"
+		on:change={(e) => onProductImageSelected(e)}
+		bind:this={productImage}
+	/>
+	<div
+		class="h-full w-full cursor-pointer rounded-md border-2 border-slate-200 bg-slate-200"
+		on:click={() => productImage.click()}
+	>
+		<img
+			src={formValues.imageUrl ? formValues.imageUrl : '/images/add_image_placeholder.webp'}
+			alt="product placeholder"
+			class="h-64 w-full rounded-md object-contain"
 		/>
-		<div
-			class="h-full w-full cursor-pointer rounded-md border-2 border-slate-200 bg-slate-200"
-			on:click={() => productImage.click()}
-		>
-			<img
-				src={formValues.imageUrl ? formValues.imageUrl : '/images/add_image_placeholder.webp'}
-				alt="product placeholder"
-				class="h-64 w-full rounded-md object-contain"
-			/>
-		</div>
 	</div>
 </div>
 

@@ -1,28 +1,9 @@
 import axios from 'axios';
 import { error, redirect, invalid } from '@sveltejs/kit';
-// import db from '$lib/db';
 import * as fs from 'fs/promises';
 
 /** @type {import('./$types').PageServerLoad} */
 export async function load({ params }: { params: any }) {
-	// const animal = await db.animal.findUnique({
-	// 	where: {
-	// 		id: parseInt(params.id)
-	// 	},
-	// 	include: {
-	// 		gender: true,
-	// 		breed: {
-	// 			include: {
-	// 				category: {
-	// 					include: {
-	// 						type: true
-	// 					}
-	// 				}
-	// 			}
-	// 		}
-	// 	}
-	// });
-
 	const res = await axios.get(`http://localhost:8000/api/animals/${params.id}`);
 	const animal = await res?.data;
 
@@ -48,20 +29,6 @@ export const actions = {
 
 			image_url = `/images/${tag}.webp`;
 		}
-
-		// const animal = await db.animal.update({
-		// 	where: {
-		// 		id: parseInt(params.id)
-		// 	},
-		// 	data: {
-		// 		tag,
-		// 		breedId,
-		// 		genderId,
-		// 		bornAt,
-		// 		purchasedAt,
-		// 		updatedAt: new Date()
-		// 	}
-		// });
 
 		const payload = {
 			tag,
