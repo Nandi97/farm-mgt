@@ -4,12 +4,16 @@
 
 	$pageTitle = 'New User';
 
+	export let data: any;
+
 	const formValues = {
 		name: '',
 		avatarUrl: '',
+		roleId: '',
 		email: '',
 		phoneNo: '',
-		joinedAt: ''
+		joinedAt: '',
+		roles: data.roles
 	};
 </script>
 

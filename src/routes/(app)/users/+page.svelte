@@ -8,7 +8,7 @@
 
 	$: users = data.users;
 
-	$: console.log('Users:', users);
+	// $: console.log('Users:', users);
 </script>
 
 <div class="flex w-full justify-end space-x-2 pb-4 text-sm">
@@ -47,6 +47,7 @@
 						{item.name}
 					</h5>
 				</a>
+				<p class="text-md mb-2 font-bold text-gray-700">{item.role.name}</p>
 				<a href={`mailto:${item.email}`} class="flex items-center">
 					<Icon icon="mdi-email-outline" class="text-lg text-slate-900" /> :
 					<span class="text-blue-600 underline">{item.email}</span></a

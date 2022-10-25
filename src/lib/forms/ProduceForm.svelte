@@ -3,69 +3,69 @@
 </script>
 
 <div class="flex flex-col space-y-1">
-	<label for="product" class="text-xs">Select Product</label>
+	<label for="productId" class="text-xs">Select Product</label>
 	<select
-		name="product"
-		id="product"
+		name="productId"
+		id="productId"
 		class="rounded-md border-0 bg-slate-100 shadow-inner shadow-slate-300"
-		bind:value={formValues.product}
+		bind:value={formValues.productId}
 	>
 		<option disabled selected value>--Product--</option>
 		{#each formValues.products as item}
-			<option value={item}>{item.name}</option>
+			<option value={item.id}>{item.name}</option>
 		{/each}
 	</select>
 </div>
 
 <div class="flex flex-col space-y-1">
-	<label for="animal" class="text-xs">Select Animal</label>
+	<label for="animalId" class="text-xs">Select Animal</label>
 	<select
-		name="animal"
-		id="animal"
+		name="animalId"
+		id="animalId"
 		class="rounded-md border-0 bg-slate-100 shadow-inner shadow-slate-300"
-		bind:value={formValues.animal}
+		bind:value={formValues.animalId}
 	>
 		<option disabled selected value>--Select Animal--</option>
 		{#each formValues.animals as item}
-			<option value={item}>{item.name}</option>
+			<option value={item.id}>{item.tag}</option>
 		{/each}
 	</select>
 </div>
 
 <div class="flex flex-col space-y-1">
-	<label for="collector" class="text-xs">Who Collected</label>
+	<label for="collectorId" class="text-xs">Who Collected</label>
 	<select
-		name="collector"
-		id="collector"
+		name="collectorId"
+		id="collectorId"
 		class="rounded-md border-0 bg-slate-100 shadow-inner shadow-slate-300"
-		bind:value={formValues.collector}
+		bind:value={formValues.collectorId}
 	>
 		<option disabled selected value>--Select Collector--</option>
 		{#each formValues.collectors as item}
-			<option value={item}>{item.name}</option>
+			<option value={item.id}>{item.name}</option>
 		{/each}
 	</select>
 </div>
 
 <div class="flex flex-col  space-y-1">
-	<label for="producionDate" class="text-xs">Producion Date</label>
+	<label for="producedAt" class="text-xs">Producion Date</label>
 	<input
 		type="date"
-		name="producionDate"
-		id="producionDate"
-		placeholder="producionDate..."
-		bind:value={formValues.producionDate}
+		name="producedAt"
+		id="producedAt"
+		placeholder="productionDate..."
+		bind:value={formValues.producedAt}
 		class="rounded-md border-0 bg-slate-100 shadow-inner shadow-slate-300"
 	/>
 </div>
 
 <div class="flex flex-col  space-y-1">
-	<label for="quantity" class="text-xs">Quantity Date</label>
+	<label for="quantity" class="text-xs">Quantity</label>
 	<input
 		type="text"
 		name="quantity"
 		id="quantity"
-		placeholder="quantity..."
+		placeholder="Quantity..."
 		bind:value={formValues.quantity}
 		class="rounded-md border-0 bg-slate-100 shadow-inner shadow-slate-300"
 	/>

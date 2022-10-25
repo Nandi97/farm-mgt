@@ -62,6 +62,23 @@
 	</div>
 
 	<div class="flex flex-col space-y-1">
+		<label for="roleId" class="text-xs">User Role</label>
+		<select
+			name="roleId"
+			id="roleId"
+			class="rounded-md border-0 bg-slate-100 shadow-inner shadow-slate-300"
+			bind:value={formValues.roleId}
+		>
+			<option disabled selected value>--Select Animal Type--</option>
+			{#if formValues.roles && formValues.roles.length}
+				{#each formValues.roles as item}
+					<option value={item.id}>{item.name}</option>
+				{/each}
+			{/if}
+		</select>
+	</div>
+
+	<div class="flex flex-col space-y-1">
 		<label for="email" class="text-xs">User email</label>
 		<input
 			type="email"

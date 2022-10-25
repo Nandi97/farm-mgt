@@ -11,9 +11,11 @@
 	const formValues = {
 		name: user.name,
 		avatarUrl: user.avatar_url,
+		roleId: user.role_id,
 		email: user.email,
 		phoneNo: user.phone_no,
-		joinedAt: new Date(user.joined_at).toISOString().substring(0, 10)
+		joinedAt: new Date(user.joined_at).toISOString().substring(0, 10),
+		roles: data.roles
 	};
 
 	$: console.log('User:', formValues);

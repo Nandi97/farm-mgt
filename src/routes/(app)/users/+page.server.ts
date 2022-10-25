@@ -20,6 +20,7 @@ export const actions = {
 
 		const name = /** @type {string} */ values.get('name');
 		const email = /** @type {string} */ values.get('email');
+		const role_id = /** @type {number} */ Number(values.get('roleId'));
 		const phone_no = /** @type {number} */ Number(values.get('phoneNo'));
 		const joined_at = values.get('joinedAt');
 		const userAvatar = values.get('avatarUrl') as File;
@@ -34,6 +35,7 @@ export const actions = {
 		const user = await axios.post('http://localhost:8000/api/users', {
 			name,
 			email,
+			role_id,
 			phone_no,
 			joined_at,
 			avatar_url

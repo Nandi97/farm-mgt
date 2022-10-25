@@ -12,7 +12,7 @@
 		types: data.types
 	};
 
-	$: console.log('Category:', formValues);
+	// $: console.log('Category:', formValues);
 </script>
 
 <form

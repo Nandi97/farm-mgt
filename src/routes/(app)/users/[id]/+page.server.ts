@@ -18,9 +18,10 @@ export const actions = {
 
 		const name = /** @type {string} */ values.get('name');
 		const email = /** @type {string} */ values.get('email');
-		const phone_no = /** @type {string} */ values.get('PhoneNo');
+		const role_id = /** @type {number} */ Number(values.get('roleId'));
+		const phone_no = /** @type {string} */ values.get('phoneNo');
 		const joined_at = values.get('joinedAt');
-		const userAvatar = values.get('imageUrl') as File;
+		const userAvatar = values.get('avatarUrl') as File;
 		let avatar_url;
 
 		if (userAvatar) {
@@ -32,10 +33,13 @@ export const actions = {
 		const payload = {
 			name,
 			email,
+			role_id,
 			phone_no,
 			joined_at,
 			avatar_url
 		};
+
+		console.log('User:', payload);
 
 		const user = await axios.patch(`http://localhost:8000/api/users/${params.id}`, payload);
 

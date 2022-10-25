@@ -4,12 +4,6 @@ import * as fs from 'fs/promises';
 
 /** @type {import ('./$types') .PageServerLoad} */
 export async function load() {
-	// const products = await db.product.findMany({
-	// 	include: {
-	// 		uom: true
-	// 	}
-	// });
-
 	const res = await axios.get('http://localhost:8000/api/products');
 	const products = await res.data;
 
@@ -33,13 +27,6 @@ export const actions = {
 
 			image_url = `/images/${name}.webp`;
 		}
-
-		// const product = await db.product.create({
-		// 	data: {
-		// 		name,
-		// 		uomId
-		// 	}
-		// });
 
 		const product = await axios.post('http://localhost:8000/api/products', {
 			name,

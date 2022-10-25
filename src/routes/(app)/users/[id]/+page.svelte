@@ -7,7 +7,7 @@
 
 	const user = data.user;
 
-	// $: console.log('User:', user);
+	$: console.log('User:', user);
 
 	$pageTitle = `User: ${user?.name}`;
 </script>
@@ -52,6 +52,12 @@
 						><Icon icon="mdi-card-account-details-outline" class="mr-2 text-blue-600" />Tag :</td
 					>
 					<td>{user.name}</td>
+				</tr>
+				<tr>
+					<td class="flex items-center"
+						><Icon icon="mdi-card-account-details-outline" class="mr-2 text-blue-600" />Tag :</td
+					>
+					<td>{user.role.name}</td>
 				</tr>
 				<tr>
 					<td class="flex items-center"><Icon icon="mdi-at" class="mr-2 text-blue-600" />Type :</td>

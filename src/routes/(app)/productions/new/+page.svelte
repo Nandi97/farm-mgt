@@ -17,11 +17,11 @@
 		productionDate: ''
 	};
 
-	// $: console.log('Production:', formValues);
+	$: console.log('Production:', formValues);
 </script>
 
 <form
-	action="/production"
+	action="/productions"
 	method="post"
 	class="mx-auto grid max-w-4xl gap-4 rounded bg-white p-4 shadow-lg sm:grid-cols-2"
 >
@@ -37,7 +37,7 @@
 			Create
 		</button>
 		<a
-			href="/production"
+			href="/productions"
 			class="rounded-md border border-gray-800 px-2 py-1 hover:bg-gray-800 hover:text-gray-50"
 		>
 			Cancel
