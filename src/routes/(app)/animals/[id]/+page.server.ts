@@ -4,8 +4,8 @@ import * as fs from 'fs/promises';
 
 /** @type {import('./$types').PageServerLoad} */
 export async function load({ params }: { params: any }) {
-	const res = await axios.get(`http://localhost:8000/api/animals/${params.id}`);
-	const animal = await res?.data;
+	const res1 = await axios.get(`http://localhost:8000/api/animals/${params.id}`);
+	const animal = await res1?.data;
 
 	if (animal) return { animal };
 

@@ -4,7 +4,7 @@ import { error, redirect, invalid } from '@sveltejs/kit';
 /** @type {import ('./$types') .PageServerLoad} */
 export async function load() {
 	const res = await axios.get('http://localhost:8000/api/productions');
-	const productions = await res.data;
+	const productions = await res?.data;
 
 	if (productions) return { productions };
 

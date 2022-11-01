@@ -7,8 +7,6 @@ export async function load() {
 	const res = await axios.get('http://localhost:8000/api/animals');
 	const animals = await res.data;
 
-	// console.log('Animals:', animals);
-
 	if (animals) return { animals };
 
 	throw error(404, 'Not found');
