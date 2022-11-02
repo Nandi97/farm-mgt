@@ -1,17 +1,16 @@
 import axios from 'axios';
 import { error, redirect, invalid } from '@sveltejs/kit';
-// import db from '$lib/db';
 
 /** @type {import('./$types').PageServerLoad} */
 export async function load({ params }: { params: any }) {
-	const res = await axios.get(`http://localhost:8000/api/animal_types/${params.id}`);
+	const res = await axios.get(`http://localhost:8000/api/chemical_types/${params.id}`);
 	const type = await res?.data;
 
 	// console.log('Type:', type);
 
 	if (type) return { type };
 
-	throw error(404, 'Animal Type Not Found!');
+	throw error(404, 'Chemical Type Not Found!');
 }
 
 export const actions = {
@@ -19,19 +18,19 @@ export const actions = {
 		const values = await request.formData();
 
 		const name = /** @type {string} */ values.get('name');
-		const icon = /** @type {string} */ values.get('icon');
+		const description = /** @type {string} */ values.get('description');
 
 		const payload = {
 			name,
-			icon
+			description
 		};
-		const res = await axios.put(`http://localhost:8000/api/animal_types/${params.id}`, payload);
+		const res = await axios.put(`http://localhost:8000/api/chemical_types/${params.id}`, payload);
 		const type = await res?.data;
 
 		if (type) {
-			throw redirect(303, '/animals/types');
+			throw redirect(303, '/treatments/chemicals/types');
 		}
 
-		throw invalid(500, { message: 'Could not update Animal Type!' });
+		throw invalid(500, { message: 'Could not update Chemical Type!' });
 	}
 };
