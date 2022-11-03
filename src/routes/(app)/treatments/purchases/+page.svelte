@@ -1,5 +1,8 @@
 <script lang="ts">
-	import { pageTitle } from '$lib/stores';
+import {format} from 'date-fns';
+
+	import { formatDate,
+pageTitle } from '$lib/stores';
 	import Icon from '@iconify/svelte';
 
 	export let data: any;
@@ -59,8 +62,9 @@
 				<th class="p-2 text-left">Supplier</th>
 				<th class="p-2 text-left">Drug Name</th>
 				<th class="p-2 text-left">Batch No</th>
+				<th class="p-2 text-left">Rate</th>
 				<th class="p-2 text-left">Quantity</th>
-				<th class="p-2 text-left">Price</th>
+				<th class="p-2 text-left">Total Price</th>
 				<th class="p-2 text-left">Purchase Date</th>
 				<th class="p-2 text-left">Manufacture Date</th>
 				<th class="p-2 text-left">Expiring Date</th>
@@ -74,13 +78,15 @@
 					<td class="p-2 text-start">{item.supplier}</td>
 					<td class="p-2 text-start">{item.chemical.name}</td>
 					<td class="p-2 text-start">{item.batch_no}</td>
+					<td class="p-2 text-start">{item.price/item.quantity}ksh/{item.uom.initial
+}</td>
 					<td class="p-2 text-start"
 						>{item.quantity}{item.uom.unit}{#if item.quantity !== 1}s{/if}</td
 					>
 					<td class="p-2 text-start">KES {item.price}</td>
-					<td class="p-2 text-start">{item.purchased_at}</td>
-					<td class="p-2 text-justify">{item.manufactured_at}</td>
-					<td class="p-2 text-justify">{item.expiring_at}</td>
+					<td class="p-2 text-start">{formatDate(item.purchased_at)}</td>
+					<td class="p-2 text-justify">{formatDate(item.manufactured_at)}</td>
+					<td class="p-2 text-justify">{formatDate(item.expiring_at)}</td>
 					<td class="p-2">&nbsp;</td>
 				</tr>
 			{/each}
