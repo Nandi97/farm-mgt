@@ -18,12 +18,12 @@ export const actions = {
 
 		const name = /** @type {string} */ values.get('name');
 
-		const type = await axios.post('http://localhost:8000/api/chemical_administration_methods', {
+		const method = await axios.post('http://localhost:8000/api/chemical_administration_methods', {
 			name
 		});
 
-		if (type) {
-			throw redirect(303, 'treatments/chemicals/methods');
+		if (method) {
+			throw redirect(303, '/treatments/chemicals/methods');
 		}
 
 		throw invalid(500, { message: 'Could not create a New Administration Method Type!' });

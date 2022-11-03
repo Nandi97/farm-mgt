@@ -25,7 +25,7 @@ export const actions = {
 		});
 
 		if (type) {
-			throw redirect(303, 'treatments/chemicals/types');
+			throw redirect(303, '/treatments/chemicals/types');
 		}
 
 		throw invalid(500, { message: 'Could not create a New Chemical Type!' });

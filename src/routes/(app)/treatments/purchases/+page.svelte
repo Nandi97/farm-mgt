@@ -4,9 +4,9 @@
 
 	export let data: any;
 
-	$pageTitle = 'Drugs';
+	$pageTitle = 'Drug Purchases';
 
-	$: chemicals = data.chemicals;
+	$: purchases = data.purchases;
 </script>
 
 <div class="flex w-full justify-between space-x-2 pb-4 text-sm">
@@ -18,18 +18,15 @@
 	</a>
 	<div class="flex space-x-2">
 		<div class="flex items-center divide-x">
-			<button
-				type="button"
-				class="cursor-not-allowed rounded-l-md bg-green-600 px-4 py-1 text-gray-50 "
+			<a
+				href="/treatments/chemicals"
+				class="rounded-l-md bg-gray-800 px-4 py-1 text-gray-50 hover:bg-opacity-70"
 			>
 				Drugs
-			</button>
-			<a
-				href="/treatments/purchases"
-				class="bg-gray-800 px-4 py-1 text-gray-50 hover:bg-opacity-70"
-			>
-				Purchase Drugs
 			</a>
+			<button type="button" class="cursor-not-allowed bg-green-600 px-4 py-1 text-gray-50">
+				Purchase Drugs
+			</button>
 			<a
 				href="/treatments/chemicals/types"
 				class="bg-gray-800 px-4 py-1 text-gray-50 hover:bg-opacity-70"
@@ -45,11 +42,11 @@
 		</div>
 
 		<a
-			href="/treatments/chemicals/new"
+			href="/treatments/purchases/new"
 			class="flex items-center space-x-2 rounded bg-gray-800 px-4 py-1 text-gray-50 hover:bg-opacity-70"
 		>
 			<Icon icon="mdi-plus" />
-			<span>New Drug</span>
+			<span>New Purchase</span>
 		</a>
 	</div>
 </div>
@@ -59,25 +56,31 @@
 		<thead>
 			<tr class="bg-gray-200 text-sm uppercase leading-normal text-gray-600">
 				<th>&nbsp;</th>
-				<th class="p-2 text-left">Drug Type</th>
-				<th class="p-2 text-left">Administration Method</th>
+				<th class="p-2 text-left">Supplier</th>
 				<th class="p-2 text-left">Drug Name</th>
-				<th class="p-2 text-left">Description</th>
+				<th class="p-2 text-left">Batch No</th>
+				<th class="p-2 text-left">Quantity</th>
+				<th class="p-2 text-left">Price</th>
+				<th class="p-2 text-left">Purchase Date</th>
+				<th class="p-2 text-left">Manufacture Date</th>
+				<th class="p-2 text-left">Expiring Date</th>
 				<th>&nbsp;</th>
 			</tr>
 		</thead>
 		<tbody class="overflow-y-scroll">
-			{#each chemicals as item}
-				<tr class="bg-gradient-to-b from-transparent to-slate-100">
+			{#each purchases as item}
+				<tr class="items-start bg-gradient-to-b from-transparent to-slate-100 text-start">
 					<td class="p-2 text-start">{item.id}</td>
-					<td class="p-2 text-start">{item.chemical_type.name}</td>
-					<td class="p-2 text-start">{item.chemical_administration_method.name}</td>
+					<td class="p-2 text-start">{item.supplier}</td>
+					<td class="p-2 text-start">{item.chemical.name}</td>
+					<td class="p-2 text-start">{item.batch_no}</td>
 					<td class="p-2 text-start"
-						><a href={`/treatments/chemicals/${item.id}`} class="text-blue-600 underline"
-							>{item.name}</a
-						></td
+						>{item.quantity}{item.uom.unit}{#if item.quantity !== 1}s{/if}</td
 					>
-					<td class="p-2 text-justify">{item.description}</td>
+					<td class="p-2 text-start">KES {item.price}</td>
+					<td class="p-2 text-start">{item.purchased_at}</td>
+					<td class="p-2 text-justify">{item.manufactured_at}</td>
+					<td class="p-2 text-justify">{item.expiring_at}</td>
 					<td class="p-2">&nbsp;</td>
 				</tr>
 			{/each}

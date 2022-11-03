@@ -1,5 +1,4 @@
 <script lang="ts">
-	import ProductsForm from '$lib/forms/ProductsForm.svelte';
 	import { pageTitle } from '$lib/stores';
 	import Icon from '@iconify/svelte';
 
@@ -37,7 +36,7 @@
 <div class="rounded-md bg-white p-2 shadow-md md:max-w-4xl">
 	<table class="w-full table-auto">
 		<thead>
-			<tr class="bg-gradient-to-b from-slate-200 to-green-200">
+			<tr class="bg-gray-200 text-sm uppercase leading-normal text-gray-600">
 				<th>&nbsp;</th>
 				<th class="p-2 text-left">Collection Date</th>
 				<th class="p-2 text-left">Production</th>

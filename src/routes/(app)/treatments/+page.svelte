@@ -22,7 +22,7 @@
 				Drugs
 			</a>
 			<a
-				href="/treatments/chemicals/purchases"
+				href="/treatments/purchases"
 				class="bg-gray-800 px-4 py-1 text-gray-50 hover:bg-opacity-70"
 			>
 				Purchase Drugs

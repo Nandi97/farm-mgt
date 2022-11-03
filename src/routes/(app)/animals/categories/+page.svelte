@@ -42,7 +42,7 @@
 <div class="rounded-md bg-white p-2 shadow-md">
 	<table class="w-full table-auto">
 		<thead>
-			<tr class="bg-gradient-to-b from-slate-200 to-green-200">
+			<tr class="bg-gray-200 text-sm uppercase leading-normal text-gray-600">
 				<th>&nbsp;</th>
 				<th class="p-2 text-left">Name</th>
 				<th class="p-2 text-left">Type</th>

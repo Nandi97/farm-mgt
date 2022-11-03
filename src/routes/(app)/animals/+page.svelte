@@ -43,7 +43,7 @@
 <div class="rounded-md bg-white p-4 shadow-lg">
 	<table class="w-full table-auto">
 		<thead>
-			<tr class="text-left">
+			<tr class="bg-gray-200 text-sm uppercase leading-normal text-gray-600">
 				<th class="p-2">&nbsp;</th>
 				<th class="p-2">Tag</th>
 				<th class="p-2">Breed</th>
