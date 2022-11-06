@@ -100,7 +100,7 @@
 			</tr>
 		</thead>
 		<tbody>
-			{#each animal as item}
+			{#each animal.animal_product_users as item}
 				<tr class="bg-gradient-to-b from-transparent to-slate-100">
 					<td>{item.id}</td>
 					<td class="p-2">{item.produced_at}</td>
