@@ -15,7 +15,7 @@
 			>Products</a
 		>
 		<a
-			href="/production"
+			href="/productions"
 			class="rounded-r-md bg-gray-800 px-4 py-1 text-gray-50 hover:bg-opacity-70"
 		>
 			Pruduction Management

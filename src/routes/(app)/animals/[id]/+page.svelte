@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { format } from 'date-fns';
-	import { pageTitle } from '$lib/stores';
+	import { formatDate, pageTitle } from '$lib/stores';
 	import Icon from '@iconify/svelte';
 
 	export let data: any;
@@ -72,13 +72,13 @@
 					<td class="flex items-center"
 						><Icon icon="mdi-calendar" class="mr-2 text-blue-600" />Birth Date :</td
 					>
-					<td>{animal.born_at}</td>
+					<td>{formatDate(animal.born_at)}</td>
 				</tr>
 				<tr>
 					<td class="flex items-center"
 						><Icon icon="mdi-calendar" class="mr-2 text-blue-600" />Purchase Date :</td
 					>
-					<td>{animal.purchased_at}</td>
+					<td>{formatDate(animal.purchased_at)}</td>
 				</tr>
 				<tr>
 					<td class="flex items-center"
@@ -89,33 +89,64 @@
 			</table>
 		</div>
 	</div>
-	<table class="w-full table-auto">
-		<thead>
-			<tr class="bg-gray-200 text-sm uppercase leading-normal text-gray-600">
-				<th>&nbsp;</th>
-				<th class="p-2 text-left">Collection Date</th>
-				<th class="p-2 text-left">Production</th>
-				<th class="p-2 text-left">Action By</th>
-				<th>&nbsp;</th>
-			</tr>
-		</thead>
-		<tbody>
-			{#each animal.animal_product_users as item}
-				<tr class="bg-gradient-to-b from-transparent to-slate-100">
-					<td>{item.id}</td>
-					<td class="p-2">{item.produced_at}</td>
-					<td class="p-2"
-						><a href={`/animals/${item.animal.id}`} class="text-blue-600 underline">
-							{item.animal.tag}</a
-						>
-						produced {item.quantity}
-						{item.product.uom.unit}{#if item.quantity !== 1}s{/if}
-						of
-						{item.product.name}
-					</td>
-					<td class="p-2">{item.user.name}</td>
+	<div class="">
+		<h1 class="w-full text-lg font-bold uppercase">Procuction History</h1>
+		<table class="w-full table-auto">
+			<thead>
+				<tr class="bg-gray-200 text-sm uppercase leading-normal text-gray-600">
+					<th>&nbsp;</th>
+					<th class="p-2 text-left">Collection Date</th>
+					<th class="p-2 text-left">Production</th>
+					<th class="p-2 text-left">Action By</th>
+					<th>&nbsp;</th>
 				</tr>
-			{/each}
-		</tbody>
-	</table>
+			</thead>
+			<tbody>
+				{#each animal.animal_product_users as item}
+					<tr class="bg-gradient-to-b from-transparent to-slate-100">
+						<td>{item.id}</td>
+						<td class="p-2">{formatDate(item.produced_at)}</td>
+						<td class="p-2"
+							>{item.animal.tag}
+							produced {item.quantity}
+							{item.product.uom.unit}{#if item.quantity !== 1}s{/if}
+							of
+							{item.product.name}
+						</td>
+						<td class="p-2">{item.user.name}</td>
+					</tr>
+				{/each}
+			</tbody>
+		</table>
+	</div>
+	<div class="">
+		<h1 class="w-full text-lg font-bold uppercase">Treatment History</h1>
+		<table class="w-full table-auto">
+			<thead>
+				<tr class="bg-gray-200 text-sm uppercase leading-normal text-gray-600">
+					<th>&nbsp;</th>
+					<th class="p-2 text-left">Treatment Date</th>
+					<th class="p-2 text-left">Treatment</th>
+					<th class="p-2 text-left">Action By</th>
+					<th>&nbsp;</th>
+				</tr>
+			</thead>
+			<tbody>
+				{#each animal.chemical_usages as item}
+					<tr class="bg-gradient-to-b from-transparent to-slate-100">
+						<td>{item.id}</td>
+						<td class="p-2">On {formatDate(item.treated_at)}</td>
+						<td class="p-2">
+							{item.animal.tag}
+							received {item.quantity}
+							{item.uom.unit}{#if item.quantity !== 1}s{/if}
+							of
+							{item.chemical.name}
+						</td>
+						<td class="p-2">{item.user.name}</td>
+					</tr>
+				{/each}
+			</tbody>
+		</table>
+	</div>
 </div>

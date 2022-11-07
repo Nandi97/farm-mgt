@@ -1,19 +1,9 @@
 import axios from 'axios';
-import { error, redirect, invalid } from '@sveltejs/kit';
-
-/** @type {import ('./$types') .PageServerLoad} */
-export async function load() {
-	const res = await axios.get('http://localhost:8000/api/animal_treatments');
-	const treatments = await res?.data;
-
-	if (treatments) return { treatments };
-
-	throw error(404, 'Not Found');
-}
+import { redirect, invalid } from '@sveltejs/kit';
 
 /** @type {import('./$types').Action} */
 export const actions = {
-	default: async ({ request }: { request: any }) => {
+	default: async ({ request, params }: { request: any; params: any }) => {
 		const values = await request.formData();
 
 		const animal_id = /** @type {number} */ Number(values.get('animalId'));
@@ -34,7 +24,10 @@ export const actions = {
 
 		// console.log('payload', payload);
 
-		const treatment = await axios.post('http://localhost:8000/api/animal_treatments', payload);
+		const treatment = await axios.post(
+			`http://localhost:8000/api/animal_treatments/${params.id}`,
+			payload
+		);
 
 		if (treatment) {
 			throw redirect(303, '/treatments');

@@ -59,6 +59,13 @@
 						{item.product.name}
 					</td>
 					<td class="p-2">{item.user.name}</td>
+					<td class="p-2">
+						<a
+							href={`/productions/${item.id}/edit`}
+							class="rounded-md bg-blue-600 px-2 py-1 text-blue-50 shadow-md hover:shadow-inner"
+							>Edit</a
+						>
+					</td>
 				</tr>
 			{/each}
 		</tbody>
