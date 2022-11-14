@@ -4,7 +4,7 @@ import * as fs from 'fs/promises';
 
 /** @type {import('./$types').PageServerLoad} */
 export async function load({ params }: { params: any }) {
-	const res = await axios.get(`http://localhost:8000/api/users/${params.id}`);
+	const res = await axios.get(`http://127.0.0.1:8000/api/users/${params.id}`);
 	const user = await res?.data;
 
 	if (user) return { user };
@@ -41,7 +41,7 @@ export const actions = {
 
 		console.log('User:', payload);
 
-		const user = await axios.patch(`http://localhost:8000/api/users/${params.id}`, payload);
+		const user = await axios.patch(`http://127.0.0.1:8000/api/users/${params.id}`, payload);
 
 		if (user) {
 			throw redirect(303, '/users');

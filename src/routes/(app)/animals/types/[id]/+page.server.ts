@@ -4,7 +4,7 @@ import { error, redirect, invalid } from '@sveltejs/kit';
 
 /** @type {import('./$types').PageServerLoad} */
 export async function load({ params }: { params: any }) {
-	const res = await axios.get(`http://localhost:8000/api/animal_types/${params.id}`);
+	const res = await axios.get(`http://127.0.0.1:8000/api/animal_types/${params.id}`);
 	const type = await res?.data;
 
 	// console.log('Type:', type);
@@ -25,7 +25,7 @@ export const actions = {
 			name,
 			icon
 		};
-		const res = await axios.put(`http://localhost:8000/api/animal_types/${params.id}`, payload);
+		const res = await axios.put(`http://127.0.0.1:8000/api/animal_types/${params.id}`, payload);
 		const type = await res?.data;
 
 		if (type) {

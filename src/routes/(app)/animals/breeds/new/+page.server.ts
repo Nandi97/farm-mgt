@@ -10,7 +10,7 @@ export async function load() {
 	// 		}
 	// 	});
 
-	const res = await axios.get('http://localhost:8000/api/animal_types');
+	const res = await axios.get('http://127.0.0.1:8000/api/animal_types');
 	const types = await res?.data;
 
 	if (types) {

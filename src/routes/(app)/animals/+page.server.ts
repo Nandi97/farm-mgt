@@ -4,7 +4,7 @@ import * as fs from 'fs/promises';
 
 /** @type {import('./$types').PageServerLoad} */
 export async function load() {
-	const res = await axios.get('http://localhost:8000/api/animals');
+	const res = await axios.get('http://127.0.0.1:8000/api/animals');
 	const animals = await res.data;
 
 	if (animals) return { animals };
@@ -31,7 +31,7 @@ export const actions = {
 		}
 
 		// try {
-		const animal = await axios.post('http://localhost:8000/api/animals', {
+		const animal = await axios.post('http://127.0.0.1:8000/api/animals', {
 			tag,
 			image_url,
 			animal_breed_id,

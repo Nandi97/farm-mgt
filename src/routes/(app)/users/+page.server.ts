@@ -4,7 +4,7 @@ import * as fs from 'fs/promises';
 
 /**@type {import('./$types').PageServerLoad} */
 export async function load() {
-	const res = await axios.get('http://localhost:8000/api/users');
+	const res = await axios.get('http://127.0.0.1:8000/api/users');
 	const users = await res.data;
 
 	// console.log('Users:', users);
@@ -32,7 +32,7 @@ export const actions = {
 			avatar_url = `/images/${name}.webp`;
 		}
 
-		const user = await axios.post('http://localhost:8000/api/users', {
+		const user = await axios.post('http://127.0.0.1:8000/api/users', {
 			name,
 			email,
 			role_id,

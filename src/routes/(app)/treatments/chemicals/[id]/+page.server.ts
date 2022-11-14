@@ -3,7 +3,7 @@ import { error, redirect, invalid } from '@sveltejs/kit';
 
 /** @type {import('./$types').PageServerLoad} */
 export async function load({ params }: { params: any }) {
-	const res = await axios.get(`http://localhost:8000/api/chemicals/${params.id}`);
+	const res = await axios.get(`http://127.0.0.1:8000/api/chemicals/${params.id}`);
 	const chemical = await res?.data;
 
 	if (chemical) return { chemical };
@@ -28,7 +28,7 @@ export const actions = {
 			chemical_type_id,
 			chemical_administration_method_id
 		};
-		const chemical = await axios.patch(`http://localhost:8000/api/chemicals/${params.id}`, payload);
+		const chemical = await axios.patch(`http://127.0.0.1:8000/api/chemicals/${params.id}`, payload);
 
 		if (chemical) {
 			throw redirect(303, '/treatments/chemicals');

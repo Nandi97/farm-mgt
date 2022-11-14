@@ -5,7 +5,7 @@ import { error } from '@sveltejs/kit';
 export async function load() {
 	// const uoms = await db.unitOfMeasurement.findMany();
 
-	const res = await axios.get('http://localhost:8000/api/uoms');
+	const res = await axios.get('http://127.0.0.1:8000/api/uoms');
 	const uoms = await res?.data;
 
 	if (uoms) {

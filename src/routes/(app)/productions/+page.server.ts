@@ -3,7 +3,7 @@ import { error, redirect, invalid } from '@sveltejs/kit';
 
 /** @type {import ('./$types') .PageServerLoad} */
 export async function load() {
-	const res = await axios.get('http://localhost:8000/api/productions');
+	const res = await axios.get('http://127.0.0.1:8000/api/productions');
 	const productions = await res?.data;
 
 	if (productions) return { productions };
@@ -32,7 +32,7 @@ export const actions = {
 
 		// console.log('payload', payload);
 
-		const production = await axios.post('http://localhost:8000/api/productions', payload);
+		const production = await axios.post('http://127.0.0.1:8000/api/productions', payload);
 
 		if (production) {
 			throw redirect(303, '/productions');

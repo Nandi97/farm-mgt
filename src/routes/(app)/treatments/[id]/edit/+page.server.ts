@@ -25,7 +25,7 @@ export const actions = {
 		// console.log('payload', payload);
 
 		const treatment = await axios.post(
-			`http://localhost:8000/api/animal_treatments/${params.id}`,
+			`http://127.0.0.1:8000/api/animal_treatments/${params.id}`,
 			payload
 		);
 

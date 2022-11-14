@@ -9,7 +9,7 @@ export async function load({ params }: { params: any }) {
 	// 	}
 	// });
 
-	const res = await axios.get(`http://localhost:8000/api/uoms/${params.id}`);
+	const res = await axios.get(`http://127.0.0.1:8000/api/uoms/${params.id}`);
 	const uom = await res?.data;
 
 	if (uom) return { uom };

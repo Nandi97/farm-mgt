@@ -4,7 +4,7 @@ import * as fs from 'fs/promises';
 
 /** @type {import('./$types').PageServerLoad} */
 export async function load({ params }: { params: any }) {
-	const res1 = await axios.get(`http://localhost:8000/api/animals/${params.id}`);
+	const res1 = await axios.get(`http://127.0.0.1:8000/api/animals/${params.id}`);
 	const animal = await res1?.data;
 
 	if (animal) return { animal };
@@ -39,7 +39,7 @@ export const actions = {
 			purchased_at
 		};
 
-		const animal = await axios.patch(`http://localhost:8000/api/animals/${params.id}`, payload);
+		const animal = await axios.patch(`http://127.0.0.1:8000/api/animals/${params.id}`, payload);
 
 		if (animal) {
 			throw redirect(303, '/animals');

@@ -4,7 +4,7 @@ import { error, redirect, invalid } from '@sveltejs/kit';
 /** @type {import('./$types').PageServerLoad} */
 export async function load({ params }: { params: any }) {
 	const res = await axios.get(
-		`http://localhost:8000/api/chemical_administration_methods/${params.id}`
+		`http://127.0.0.1:8000/api/chemical_administration_methods/${params.id}`
 	);
 	const method = await res?.data;
 
@@ -25,7 +25,7 @@ export const actions = {
 			name
 		};
 		const res = await axios.put(
-			`http://localhost:8000/api/chemical_administration_methods/${params.id}`,
+			`http://127.0.0.1:8000/api/chemical_administration_methods/${params.id}`,
 			payload
 		);
 		const type = await res?.data;

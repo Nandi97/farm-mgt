@@ -10,7 +10,7 @@ import { error, redirect, invalid } from '@sveltejs/kit';
 // 	// 	}
 // 	// });
 
-// 	const res = await axios.get(`http://localhost:8000/api/uoms/${params.id}`);
+// 	const res = await axios.get(`http://127.0.0.1:8000/api/uoms/${params.id}`);
 // 	const uom = await res?.data;
 
 // 	console.log('UOM:', uom);
@@ -42,7 +42,7 @@ export const actions = {
 			initial
 		};
 
-		const res = await axios.put(`http://localhost:8000/api/uoms/${params.id}`, payload);
+		const res = await axios.put(`http://127.0.0.1:8000/api/uoms/${params.id}`, payload);
 		const uom = await res?.data;
 
 		if (uom) {

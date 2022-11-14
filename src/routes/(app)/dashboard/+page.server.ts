@@ -3,7 +3,7 @@ import { invalid, redirect, error } from '@sveltejs/kit';
 
 /** @type {import('./$types').PageServerLoad} */
 export async function load() {
-	const res = await axios.get('http://localhost:8000/api/chemical_purchases');
+	const res = await axios.get('http://127.0.0.1:8000/api/chemical_purchases');
 	const purchases = await res?.data;
 
 	if (purchases) return { purchases };

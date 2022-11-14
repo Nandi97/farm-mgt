@@ -6,7 +6,7 @@ import { error, redirect, invalid } from '@sveltejs/kit';
 export async function load() {
 	// const uoms = await db.unitOfMeasurement.findMany();
 
-	const res = await axios.get('http://localhost:8000/api/uoms');
+	const res = await axios.get('http://127.0.0.1:8000/api/uoms');
 	const uoms = await res?.data;
 
 	if (uoms) return { uoms };
@@ -33,7 +33,7 @@ export const actions = {
 			initial
 		};
 
-		const uom = await axios.post('http://localhost:8000/api/uoms', payload);
+		const uom = await axios.post('http://127.0.0.1:8000/api/uoms', payload);
 
 		if (uom) {
 			throw redirect(303, '/uoms');

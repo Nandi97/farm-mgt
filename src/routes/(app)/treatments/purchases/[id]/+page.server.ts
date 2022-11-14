@@ -3,7 +3,7 @@ import { error, redirect, invalid } from '@sveltejs/kit';
 
 /** @type {import('./$types').PageServerLoad} */
 export async function load({ params }: { params: any }) {
-	const res = await axios.get(`http://localhost:8000/api/chemical_purchases/${params.id}`);
+	const res = await axios.get(`http://127.0.0.1:8000/api/chemical_purchases/${params.id}`);
 	const purchase = await res?.data;
 
 	if (purchase) return { purchase };
@@ -37,7 +37,7 @@ export const actions = {
 			expiring_at
 		};
 		const purchase = await axios.patch(
-			`http://localhost:8000/api/chemical_purchases/${params.id}`,
+			`http://127.0.0.1:8000/api/chemical_purchases/${params.id}`,
 			payload
 		);
 		if (purchase) {

@@ -23,7 +23,7 @@ export const actions = {
 		// console.log('payload', payload);
 
 		const production = await axios.post(
-			`http://localhost:8000/api/productions/${params.id}`,
+			`http://127.0.0.1:8000/api/productions/${params.id}`,
 			payload
 		);
 

@@ -14,10 +14,10 @@ export async function load({ params }: { params: any }) {
 	// 	}
 	// });
 
-	const res1 = await axios.get('http://localhost:8000/api/uoms');
+	const res1 = await axios.get('http://127.0.0.1:8000/api/uoms');
 	const uoms = await res1?.data;
 
-	const res2 = await axios.get(`http://localhost:8000/api/products/${params.id}`);
+	const res2 = await axios.get(`http://127.0.0.1:8000/api/products/${params.id}`);
 	const product = await res2?.data;
 
 	if (product && uoms) return { product, uoms };

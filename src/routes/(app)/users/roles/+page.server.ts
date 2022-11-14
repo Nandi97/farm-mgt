@@ -4,7 +4,7 @@ import { error, redirect, invalid } from '@sveltejs/kit';
 /** @type {import('./$types').PageServerLoad} */
 export async function load() {
 	// const types = await db.animalType.findMany();
-	const res = await axios.get('http://localhost:8000/api/roles');
+	const res = await axios.get('http://127.0.0.1:8000/api/roles');
 	const roles = await res?.data;
 	// console.log('Types:', types);
 
@@ -20,7 +20,7 @@ export const actions = {
 		const name = /** @type {string} */ values.get('name');
 		const description = /** @type {string} */ values.get('description');
 
-		const role = await axios.post('http://localhost:8000/api/roles', { name, description });
+		const role = await axios.post('http://127.0.0.1:8000/api/roles', { name, description });
 
 		if (role) {
 			throw redirect(303, '/users/roles');

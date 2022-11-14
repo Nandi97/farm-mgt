@@ -3,7 +3,7 @@ import { invalid, redirect, error } from '@sveltejs/kit';
 
 /** @type {import('./$types').PageServerLoad} */
 export async function load() {
-	const res = await axios.get('http://localhost:8000/api/animal_categories');
+	const res = await axios.get('http://127.0.0.1:8000/api/animal_categories');
 	const categories = await res?.data;
 
 	// console.log('Categories:', categories);
@@ -21,7 +21,7 @@ export const actions = {
 		const name = /** @type {string} */ values.get('name');
 		const animal_type_id = /** @type {number} */ Number(values.get('typeId'));
 
-		const category = await axios.post('http://localhost:8000/api/animal_categories', {
+		const category = await axios.post('http://127.0.0.1:8000/api/animal_categories', {
 			name,
 			animal_type_id
 		});

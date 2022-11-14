@@ -10,7 +10,7 @@ export async function load() {
 	// 	}
 	// });
 
-	const res = await axios.get('http://localhost:8000/api/animal_breeds');
+	const res = await axios.get('http://127.0.0.1:8000/api/animal_breeds');
 	const breeds = await res?.data;
 
 	if (breeds) return { breeds };
@@ -27,7 +27,7 @@ export const actions = {
 		const description = /** @type {string} */ values.get('description');
 		const animal_category_id = /** @type {number} */ Number(values.get('categoryId'));
 
-		const breed = await axios.post('http://localhost:8000/api/animal_breeds', {
+		const breed = await axios.post('http://127.0.0.1:8000/api/animal_breeds', {
 			name,
 			description,
 			animal_category_id

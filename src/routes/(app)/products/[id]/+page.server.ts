@@ -4,7 +4,7 @@ import * as fs from 'fs/promises';
 
 /** @type {import('./$types').PageServerLoad} */
 export async function load({ params }: { params: any }) {
-	const res = await axios.get(`http://localhost:8000/api/products/${params.id}`);
+	const res = await axios.get(`http://127.0.0.1:8000/api/products/${params.id}`);
 	const product = await res?.data;
 
 	if (product) return { product };
@@ -38,7 +38,7 @@ export const actions = {
 		// });
 		const payload = { name, image_url, uom_id };
 
-		const product = await axios.patch(`http://localhost:8000/api/products/${params.id}`, payload);
+		const product = await axios.patch(`http://127.0.0.1:8000/api/products/${params.id}`, payload);
 
 		if (product) {
 			throw redirect(303, '/products');

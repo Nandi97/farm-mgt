@@ -17,7 +17,7 @@ export async function load({ params }: { params: any }) {
 	// 	}
 	// });
 
-	const res = await axios.get(`http://localhost:8000/api/animal_breeds/${params.id}`);
+	const res = await axios.get(`http://127.0.0.1:8000/api/animal_breeds/${params.id}`);
 	const breed = await res?.data;
 
 	if (breed) return { breed };
@@ -49,7 +49,7 @@ export const actions = {
 			animal_category_id
 		};
 		const breed = await axios.patch(
-			`http://localhost:8000/api/animal_breeds/${params.id}`,
+			`http://127.0.0.1:8000/api/animal_breeds/${params.id}`,
 			payload
 		);
 		if (breed) {
