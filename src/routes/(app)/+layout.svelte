@@ -1,12 +1,22 @@
 <script lang="ts">
 	import Icon from '@iconify/svelte';
 	import { pageTitle } from '$lib/stores';
+	import { goto } from '$app/navigation';
 
 	export let data: any;
 
 	// $: console.log('Data:', data);
 
 	$: links = data.menus;
+	const logout = async () => {
+        await fetch('http://localhost:8000/api/logout', {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            credentials: 'include',
+        })
+
+        await goto('/login');
+    }
 </script>
 
 <svelte:head>
@@ -33,7 +43,7 @@
 					{$pageTitle}
 				</div>
 				<div class="flex items-center text-2xl font-light">
-					<Icon icon="mdi-account-circle-outline" class="mr-2" />USER
+					<a href="#" class="text-sm border rounded-md border-gray-700 p-1" on:click={logout}>Logout</a>
 				</div>
 			</div>
 		</header>

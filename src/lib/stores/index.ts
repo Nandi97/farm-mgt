@@ -5,3 +5,4 @@ export const pageTitle = writable('');
 export const formatDate = (date: Date) => {
 	return format(new Date(date), 'MMMM d, yyyy');
 };
+export const authenticated = writable(false);
