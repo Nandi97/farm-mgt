@@ -7,7 +7,7 @@
 
 	const user = data.user;
 
-	$: console.log('User:', user);
+	// $: console.log('User:', user);
 
 	$pageTitle = `User: ${user?.name}`;
 </script>

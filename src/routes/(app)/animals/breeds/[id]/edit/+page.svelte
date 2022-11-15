@@ -15,7 +15,7 @@
 		category: breed.animal_category
 	};
 
-	$: console.log('Breed:', formValues);
+	// $: console.log('Breed:', formValues);
 </script>
 
 <form

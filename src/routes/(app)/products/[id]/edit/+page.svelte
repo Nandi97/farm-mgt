@@ -15,7 +15,7 @@
 		uoms: data.uoms
 	};
 
-	$: console.log('Product:', formValues);
+	// $: console.log('Product:', formValues);
 </script>
 
 <form

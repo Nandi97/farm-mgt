@@ -9,7 +9,7 @@
 
 	$: treatments = data.treatments;
 
-	$: console.log('Treatments:', treatments);
+	// $: console.log('Treatments:', treatments);
 </script>
 
 <div class="flex w-full justify-end space-x-2 pb-4 text-sm">

@@ -6,7 +6,7 @@
 
 	const breed = data.breed;
 
-	$: console.log('Breed', breed);
+	// $: console.log('Breed', breed);
 
 	$pageTitle = `Animal Breed: ${breed?.name}`;
 </script>

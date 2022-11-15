@@ -17,7 +17,7 @@
 		productionDate: ''
 	};
 
-	$: console.log('Production:', formValues);
+	// $: console.log('Production:', formValues);
 </script>
 
 <form

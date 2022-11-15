@@ -13,7 +13,7 @@
 		types: data.types
 	};
 
-	$: console.log('Breed:', formValues);
+	// $: console.log('Breed:', formValues);
 </script>
 
 <form

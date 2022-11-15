@@ -14,11 +14,12 @@
 		roleId: user.role_id,
 		email: user.email,
 		phoneNo: user.phone_no,
+		password: user.password,
 		joinedAt: new Date(user.joined_at).toISOString().substring(0, 10),
 		roles: data.roles
 	};
 
-	$: console.log('User:', formValues);
+	// $: console.log('User:', formValues);
 </script>
 
 <form

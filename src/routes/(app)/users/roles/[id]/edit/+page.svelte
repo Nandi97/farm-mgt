@@ -6,7 +6,7 @@
 
 	const role = data.role;
 
-	$: console.log('User role:', role);
+	// $: console.log('User role:', role);
 
 	const formValues = {
 		name: role.name,

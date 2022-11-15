@@ -103,6 +103,18 @@
 	</div>
 
 	<div class="flex flex-col space-y-1">
+		<label for="password" class="text-xs">User Password</label>
+		<input
+			type="password"
+			name="password"
+			id="password"
+			placeholder="User Password"
+			bind:value={formValues.password}
+			class="rounded-md border-0 bg-slate-100 shadow-inner shadow-slate-300"
+		/>
+	</div>
+
+	<div class="flex flex-col space-y-1">
 		<label for="joinedAt" class="text-xs">User Join Date</label>
 		<input
 			type="date"

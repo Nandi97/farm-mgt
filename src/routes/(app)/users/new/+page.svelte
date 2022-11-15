@@ -13,6 +13,7 @@
 		email: '',
 		phoneNo: '',
 		joinedAt: '',
+		password: '',
 		roles: data.roles
 	};
 </script>
