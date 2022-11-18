@@ -34,6 +34,7 @@
 			class="hidden"
 			on:change={(e) => onUserAvatarSelected(e)}
 			bind:this={userAvatar}
+			required
 		/>
 		<div
 			class="h-full w-full cursor-pointer rounded-md border-2 border-slate-200 bg-slate-200"
@@ -50,7 +51,7 @@
 
 <div class="grid gap-4 sm:col-span-2 sm:grid-cols-2">
 	<div class="flex flex-col space-y-1">
-		<label for="name" class="text-xs">User Name</label>
+		<label for="name" class="text-xs">Full Name</label>
 		<input
 			type="text"
 			name="name"
@@ -58,6 +59,7 @@
 			placeholder="User Name"
 			bind:value={formValues.name}
 			class="rounded-md border-0 bg-slate-100 shadow-inner shadow-slate-300"
+			required
 		/>
 	</div>
 
@@ -68,6 +70,7 @@
 			id="roleId"
 			class="rounded-md border-0 bg-slate-100 shadow-inner shadow-slate-300"
 			bind:value={formValues.roleId}
+			required
 		>
 			<option disabled selected value>--Select Animal Type--</option>
 			{#if formValues.roles && formValues.roles.length}
@@ -87,6 +90,7 @@
 			placeholder="User email"
 			bind:value={formValues.email}
 			class="rounded-md border-0 bg-slate-100 shadow-inner shadow-slate-300"
+			required
 		/>
 	</div>
 
@@ -99,6 +103,7 @@
 			placeholder="User phoneNo"
 			bind:value={formValues.phoneNo}
 			class="rounded-md border-0 bg-slate-100 shadow-inner shadow-slate-300"
+			required
 		/>
 	</div>
 
@@ -111,6 +116,7 @@
 			placeholder="User Password"
 			bind:value={formValues.password}
 			class="rounded-md border-0 bg-slate-100 shadow-inner shadow-slate-300"
+			required
 		/>
 	</div>
 
@@ -123,6 +129,7 @@
 			placeholder="User Join Date"
 			bind:value={formValues.joinedAt}
 			class="rounded-md border-0 bg-slate-100 shadow-inner shadow-slate-300"
+			required
 		/>
 	</div>
 </div>

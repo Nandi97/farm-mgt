@@ -40,7 +40,7 @@
 			</div>
 
 			<div class="flex w-full flex-1 items-center justify-between overflow-hidden bg-gray-50 p-3">
-				<div class="text-2xl font-extralight">
+				<div class="text-sm md:text-3xl font-extralight">
 					{$pageTitle}
 				</div>
 				<div class="flex items-center space-x-2 text-2xl font-light">

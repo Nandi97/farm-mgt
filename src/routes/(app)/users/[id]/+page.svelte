@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { format } from 'date-fns';
-	import { pageTitle } from '$lib/stores';
+	import { formatDate,pageTitle } from '$lib/stores';
 	import Icon from '@iconify/svelte';
 
 	export let data: any;
@@ -37,30 +37,30 @@
 </div>
 
 <div class="rounded-md bg-white p-4 shadow-lg">
-	<div class="grid grid-cols-12">
-		<div class="w-full border-b font-thin md:col-span-12">
+	<div class="grid grid-cols-6 md:grid-cols-12">
+		<div class="w-full border-b font-thin md:col-span-12 col-span-6">
 			<div class="text-3xl">{user?.name}</div>
 		</div>
-		<div class="p-2 md:col-span-4">
+		<div class="p-2 md:col-span-4 col-span-6">
 			<img src={user.avatar_url} alt="animal image" class="mt-2" />
 		</div>
-		<div class="md:col-span-8">
+		<div class="md:col-span-8 col-span-6">
 			<div class="w-full border-b font-thin">Deatils</div>
 			<table class="w-full table-auto">
 				<tr>
 					<td class="flex items-center"
-						><Icon icon="mdi-card-account-details-outline" class="mr-2 text-blue-600" />Tag :</td
+						><Icon icon="mdi-card-account-details-outline" class="mr-2 text-blue-600" />User Name :</td
 					>
 					<td>{user.name}</td>
 				</tr>
 				<tr>
 					<td class="flex items-center"
-						><Icon icon="mdi-card-account-details-outline" class="mr-2 text-blue-600" />Tag :</td
+						><Icon icon="mdi-card-account-details-outline" class="mr-2 text-blue-600" />Role :</td
 					>
 					<td>{user.role.name}</td>
 				</tr>
 				<tr>
-					<td class="flex items-center"><Icon icon="mdi-at" class="mr-2 text-blue-600" />Type :</td>
+					<td class="flex items-center"><Icon icon="mdi-at" class="mr-2 text-blue-600" />Email :</td>
 					<td
 						><a
 							href={`mailto:${user.email}`}
@@ -70,15 +70,15 @@
 				</tr>
 				<tr>
 					<td class="flex items-center"
-						><Icon icon="mdi-phone-outline" class="mr-2 text-blue-600" />Breed :</td
+						><Icon icon="mdi-phone-outline" class="mr-2 text-blue-600" />Phone No :</td
 					>
 					<td>{user.phone_no}</td>
 				</tr>
 				<tr>
 					<td class="flex items-center"
-						><Icon icon="mdi-calendar-range" class="mr-2 text-blue-600" />Gender :</td
+						><Icon icon="mdi-calendar-range" class="mr-2 text-blue-600" />Join Date :</td
 					>
-					<td>{user.joined_at}</td>
+					<td>{formatDate(user.joined_at)}</td>
 				</tr>
 			</table>
 		</div>

@@ -75,6 +75,7 @@
 			placeholder="Animal Tag"
 			bind:value={formValues.tag}
 			class="rounded-md border-0 bg-slate-100 shadow-inner shadow-slate-300"
+			required
 		/>
 	</div>
 
@@ -86,6 +87,7 @@
 			id="genderId"
 			bind:value={formValues.genderId}
 			class="rounded-md border-0 bg-slate-100 shadow-inner shadow-slate-300"
+			required
 		>
 			<option disabled selected value>--Select Gender--</option>
 			{#each formValues.genders as item}
@@ -101,6 +103,7 @@
 			id="animalType"
 			class="rounded-md border-0 bg-slate-100 shadow-inner shadow-slate-300"
 			bind:value={animalType}
+			required
 		>
 			<option disabled selected value>--Select Animal Type--</option>
 			{#each formValues.types as item}
@@ -116,6 +119,7 @@
 			id="category"
 			class="rounded-md border-0 bg-slate-100 shadow-inner shadow-slate-300"
 			bind:value={animalCategory}
+			required
 		>
 			<option disabled selected value>--Select Category--</option>
 			{#if animalType && animalType.animal_categories && animalType.animal_categories.length}
@@ -134,6 +138,7 @@
 			id="breedId"
 			class="rounded-md border-0 bg-slate-100 shadow-inner shadow-slate-300"
 			bind:value={formValues.breedId}
+			required
 		>
 			<option disabled selected value>--Select Animal Type--</option>
 			{#if animalCategory && animalCategory.animal_breeds && animalCategory.animal_breeds.length}
@@ -153,6 +158,7 @@
 			placeholder="Animal Birth Date"
 			bind:value={formValues.bornAt}
 			class="rounded-md border-0 bg-slate-100 shadow-inner shadow-slate-300"
+			required
 		/>
 	</div>
 
@@ -165,6 +171,7 @@
 			placeholder="Purchase Date"
 			bind:value={formValues.purchasedAt}
 			class="rounded-md border-0 bg-slate-100 shadow-inner shadow-slate-300"
+			required
 		/>
 	</div>
 </div>

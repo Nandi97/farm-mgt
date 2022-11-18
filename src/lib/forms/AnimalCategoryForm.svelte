@@ -9,6 +9,7 @@
 		id="typeId"
 		class="rounded-md border-0 bg-slate-100 shadow-inner shadow-slate-300"
 		bind:value={formValues.typeId}
+		required
 	>
 		<option disabled selected value>--Select Animal Type--</option>
 		{#if formValues.types && formValues.types.length}
@@ -27,5 +28,6 @@
 		id="name"
 		bind:value={formValues.name}
 		class="rounded-md border-0 bg-slate-100 shadow-inner shadow-slate-300"
+		required
 	/>
 </div>

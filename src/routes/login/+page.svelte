@@ -15,7 +15,7 @@
 			})
 		});
 
-		await goto('/dashboard');
+		await goto('/users');
 	};
 </script>
 
@@ -25,7 +25,7 @@
 		<!--Header-->
 		<header class="flex h-12 w-full bg-green-50 shadow-lg shadow-slate-600 ">
 			<div
-				class="hidden w-1/2 items-center justify-center border-gray-300 border-opacity-80 bg-green-600 bg-gradient-to-b from-green-600 to-green-500 pl-4 text-2xl  text-green-50 shadow-md md:col-span-2 md:block md:w-1/6  lg:block lg:w-1/6"
+				class="w-1/2 items-center justify-center border-gray-300 border-opacity-80 bg-green-600 bg-gradient-to-b from-green-600 to-green-500 pl-4 text-2xl  text-green-50 shadow-md md:col-span-2  md:w-1/6  lg:block lg:w-1/6"
 			>
 				<span class="font-light">Grey's</span>
 				<span class="font-bold">Farm</span>

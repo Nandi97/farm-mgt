@@ -37,14 +37,14 @@
 </div>
 
 <div class="rounded-md bg-white p-4 shadow-lg">
-	<div class="grid grid-cols-12">
-		<div class="w-full border-b font-thin md:col-span-12">
-			<div class="text-3xl">{animal?.tag}</div>
+	<div class="grid grid-cols-6 md:grid-cols-12">
+		<div class="w-full border-b font-thin md:col-span-12 col-span-6">
+			<div class="text-sm md:text-3xl">{animal?.tag}</div>
 		</div>
-		<div class="p-2 md:col-span-4">
+		<div class="p-2 md:col-span-4 col-span-6">
 			<img src={animal.image_url} alt="animal image" class="mt-2" />
 		</div>
-		<div class="md:col-span-8">
+		<div class="md:col-span-8 col-span-6">
 			<div class="w-full border-b font-thin">Deatils</div>
 			<table class="w-full table-auto">
 				<tr>
@@ -119,7 +119,7 @@
 			</tbody>
 		</table>
 	</div>
-	<div class="">
+	<div class="overflow-x-auto relative shadow-md sm:rounded-lg">
 		<h1 class="w-full text-lg font-bold uppercase">Treatment History</h1>
 		<table class="w-full table-auto">
 			<thead>

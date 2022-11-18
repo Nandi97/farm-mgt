@@ -68,6 +68,8 @@
 				bind:value={searchTerm}
 			/>
 		</div>
+		
+<div class="overflow-x-auto relative shadow-md sm:rounded-lg">
 	<table class="w-full table-auto">
 		<thead>
 			<tr class="bg-gray-200 text-sm uppercase leading-normal text-gray-600">
@@ -99,4 +101,5 @@
 			{/if}
 		</tbody>
 	</table>
+</div>
 </div>

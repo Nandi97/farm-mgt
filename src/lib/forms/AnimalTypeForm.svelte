@@ -10,6 +10,7 @@
 		id="name"
 		class="rounded-md border-0 bg-slate-100 shadow-inner shadow-slate-300"
 		bind:value={formValues.name}
+		required
 	/>
 </div>
 
@@ -21,5 +22,6 @@
 		id="icon"
 		class="rounded-md border-0 bg-slate-100 shadow-inner shadow-slate-300"
 		bind:value={formValues.icon}
+		required
 	/>
 </div>

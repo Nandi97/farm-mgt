@@ -21,6 +21,7 @@
 		id="animalType"
 		class="rounded-md border-0 bg-slate-100 shadow-inner shadow-slate-300"
 		bind:value={animalType}
+		required
 	>
 		<option disabled selected value>--Select Animal Type--</option>
 		{#each formValues.types as item}
@@ -36,6 +37,7 @@
 		id="categoryId"
 		class="rounded-md border-0 bg-slate-100 shadow-inner shadow-slate-300"
 		bind:value={formValues.categoryId}
+		required
 	>
 		<option disabled selected value>--Select Animal Category--</option>
 		{#if animalType && animalType.animal_categories && animalType.animal_categories.length}
@@ -55,6 +57,7 @@
 		placeholder="Breed Name"
 		bind:value={formValues.name}
 		class="rounded-md border-0 bg-slate-100 shadow-inner shadow-slate-300"
+		required
 	/>
 </div>
 
@@ -67,5 +70,6 @@
 		placeholder="Description..."
 		bind:value={formValues.description}
 		class="h-40 rounded-md border-0 bg-slate-100 shadow-inner shadow-slate-300"
+		required
 	/>
 </div>

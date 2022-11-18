@@ -29,9 +29,9 @@ export const actions = {
 		const role = await res?.data;
 
 		if (role) {
-			throw redirect(303, '/users/role');
+			throw redirect(303, '/users/roles');
 		}
 
-		throw invalid(500, { message: 'Could not update Animal Type!' });
+		throw invalid(500, { message: 'Could not update User Role!' });
 	}
 };
